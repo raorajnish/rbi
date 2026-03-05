@@ -1,0 +1,18 @@
+# Python-specific ignore
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment
+.env
+*.env*
+
+# Data/Indices
+data/faiss_index/langchain_index/

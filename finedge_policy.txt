@@ -1,0 +1,25 @@
+# FinEdge Capital Pvt Ltd - Customer Onboarding & KYC Policy
+**Version:** 1.0 (March 2026)
+**Organization Type:** NBFC (Investment & Credit Company)
+
+## 1. Objective
+To establish a procedure for onboarding new customers and performing basic Know Your Customer (KYC) checks as per the management's baseline requirements.
+
+## 2. Customer Identification Procedure
+- For individual customers, we collect a copy of the Aadhaar card and verify identity via a one-time password (OTP).
+- For corporate entities, we collect the Certificate of Incorporation and GSTIN.
+- Verification of documents is completed within 14 business days of onboarding.
+
+## 3. Risk Categorization
+- Customers are categorized as 'Standard' or 'High Risk'.
+- 'High Risk' customers require a senior manager's sign-off.
+
+## 4. Record Maintenance
+- All KYC documents and transaction records are maintained in our secure digital vault for a period of 3 years from the date of the transaction or closing of the account.
+
+## 5. Ongoing Monitoring
+- We perform a manual review of account transactions once every year to identify any suspicious activity.
+- If suspicious activity is found, we notify the local police station.
+
+---
+**Note:** This is an internal draft and does not yet include integrations with central registries like CKYC or specialized AML monitoring software.

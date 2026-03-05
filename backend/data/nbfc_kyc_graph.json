@@ -1,0 +1,1272 @@
+{
+    "document": {
+        "id": "rbi_nbfc_kyc_2025",
+        "title": "Reserve Bank of India (Non-Banking Financial Companies - Know Your Customer) Directions, 2025",
+        "effective_date": "2025-11-28",
+        "last_updated": "2025-12-29",
+        "document_type": "master_direction",
+        "issuing_authority": "Reserve Bank of India",
+        "notification_number": "RBI/DOR/2025-26/361 DOR.AML.REC.No.280/14.01.003/2025-26",
+        "applicable_to": [
+            "Non-Banking Financial Companies (NBFCs)",
+            "All layers of NBFCs"
+        ],
+        "exclusions": [
+            "NBFCs not having any customer interface"
+        ],
+        "legal_framework": [
+            "Reserve Bank of India Act, 1934 (Sections 45JA, 45K, 45L)",
+            "Payment and Settlement Systems Act 2007 (Section 10(2), 18)",
+            "Foreign Exchange Management Act, 1999 (Section 11(1))",
+            "National Housing Bank Act, 1987 (Section 30A)",
+            "Prevention of Money-Laundering (Maintenance of Records) Rules, 2005 (Rule 9(14))"
+        ]
+    },
+    "nodes": [
+        {
+            "id": "nbfc_node_1",
+            "type": "regulation",
+            "label": "NBFC KYC Directions 2025",
+            "properties": {
+                "chapter": "I",
+                "section": "Preliminary",
+                "paragraph": "1-5",
+                "category": "general"
+            }
+        },
+        {
+            "id": "nbfc_node_2",
+            "type": "entity",
+            "label": "Non-Banking Financial Company (NBFC)",
+            "properties": {
+                "entity_type": "regulated_entity",
+                "applicability": "All categories and layers of NBFCs",
+                "exclusions": "NBFCs without customer interface",
+                "regulatory_framework": "Scale Based Regulation Directions, 2025"
+            }
+        },
+        {
+            "id": "nbfc_node_3",
+            "type": "definition",
+            "label": "Beneficial Owner (NBFC Context)",
+            "properties": {
+                "paragraph": "5(1)(iv)",
+                "definition": "Natural person with >10% ownership/control in company/partnership, >15% in unincorporated bodies",
+                "threshold_company": "10%",
+                "threshold_partnership": "10%",
+                "threshold_trust": "10%",
+                "threshold_unincorporated": "15%",
+                "control_definition": "Right to appoint majority directors or control management/policy decisions"
+            }
+        },
+        {
+            "id": "nbfc_node_4",
+            "type": "definition",
+            "label": "Officially Valid Document (OVD) - NBFC",
+            "properties": {
+                "paragraph": "5(1)(xiv)",
+                "primary_documents": [
+                    "Passport",
+                    "Driving Licence",
+                    "Aadhaar",
+                    "Voter ID",
+                    "NREGA Job Card",
+                    "NPR Letter"
+                ],
+                "alternative_address_proofs": [
+                    "Utility bills (≤2 months old)",
+                    "Property/Municipal tax receipt",
+                    "Pension Payment Orders",
+                    "Employer accommodation allotment letter",
+                    "Leave and license agreements"
+                ],
+                "foreign_national_requirements": "Foreign government documents + Indian Embassy letter",
+                "name_change_procedure": "Marriage certificate or Gazette notification"
+            }
+        },
+        {
+            "id": "nbfc_node_5",
+            "type": "definition",
+            "label": "Walk-in Customer (NBFC)",
+            "properties": {
+                "paragraph": "5(2)(iii)",
+                "definition": "Person without account-based relationship undertaking transactions with NBFC"
+            }
+        },
+        {
+            "id": "nbfc_node_6",
+            "type": "definition",
+            "label": "Customer Due Diligence (CDD) - NBFC",
+            "properties": {
+                "paragraph": "5(2)(iv)",
+                "trigger_threshold": "₹50,000 (single or connected transactions)",
+                "components": [
+                    "Customer identification and verification",
+                    "Purpose and intended nature of business relationship",
+                    "Understanding customer's business, ownership, control",
+                    "Beneficial owner identification and verification"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_7",
+            "type": "definition",
+            "label": "Suspicious Transaction (NBFC)",
+            "properties": {
+                "paragraph": "5(1)(xviii)",
+                "indicators": [
+                    "Involves proceeds of scheduled offences",
+                    "Unusual or unjustified complexity",
+                    "No economic rationale or bona fide purpose",
+                    "Suspected terrorist financing"
+                ],
+                "coverage": "Includes attempted transactions"
+            }
+        },
+        {
+            "id": "nbfc_node_8",
+            "type": "requirement",
+            "label": "KYC Policy Components - NBFC",
+            "properties": {
+                "paragraph": "6",
+                "approval_authority": "Board of Directors or delegated committee",
+                "key_elements": [
+                    "Customer Acceptance Policy",
+                    "Risk Management",
+                    "Customer Identification Procedures",
+                    "Monitoring of Transactions"
+                ],
+                "additional_provisions": [
+                    "Periodic KYC updation",
+                    "Exceptional updation measures",
+                    "Address change documentation",
+                    "Branch-agnostic updation facility",
+                    "Mobile number change protocol for non-face-to-face accounts"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_9",
+            "type": "requirement",
+            "label": "Group-wide AML/CFT Programs - NBFC",
+            "properties": {
+                "paragraph": "8",
+                "legal_basis": "PML Rules, Chapter IV",
+                "requirements": [
+                    "Group-wide policies for client due diligence",
+                    "Information sharing mechanisms",
+                    "Confidentiality safeguards",
+                    "Tipping-off prevention"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_10",
+            "type": "process",
+            "label": "ML/TF Risk Assessment - NBFC",
+            "properties": {
+                "paragraph": "10",
+                "assessment_factors": [
+                    "Clients",
+                    "Countries/geographic areas",
+                    "Products/services",
+                    "Transactions",
+                    "Delivery channels"
+                ],
+                "documentation_requirement": "Properly documented, proportionate to nature/size/complexity",
+                "review_frequency": "At least annually",
+                "reporting": "Outcome to Board or delegated committee"
+            }
+        },
+        {
+            "id": "nbfc_node_11",
+            "type": "role",
+            "label": "Designated Director - NBFC",
+            "properties": {
+                "paragraph": "14",
+                "appointment": "Board-nominated",
+                "responsibility": "Overall compliance with PML Act Chapter IV obligations",
+                "qualification": "Managing Director or Whole-time Director",
+                "reporting_to": [
+                    "FIU-IND",
+                    "RBI"
+                ],
+                "restriction": "Cannot be Principal Officer"
+            }
+        },
+        {
+            "id": "nbfc_node_12",
+            "type": "role",
+            "label": "Principal Officer - NBFC",
+            "properties": {
+                "paragraph": "15",
+                "responsibilities": [
+                    "Compliance monitoring",
+                    "Transaction monitoring",
+                    "Information sharing and reporting"
+                ],
+                "reporting_to": [
+                    "FIU-IND",
+                    "RBI"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_13",
+            "type": "requirement",
+            "label": "Customer Acceptance Policy - NBFC",
+            "properties": {
+                "paragraph": "16-19",
+                "prohibitions": [
+                    "Anonymous accounts",
+                    "Fictitious/benami names",
+                    "Accounts without CDD"
+                ],
+                "verification_requirements": [
+                    "PAN verification from issuing authority",
+                    "Digital signature verification (IT Act, 2000)",
+                    "GST number verification"
+                ],
+                "non-discrimination": "No denial to disadvantaged persons including PwDs",
+                "rejection_procedure": "Must record reasons, cannot reject without application of mind",
+                "tipping_off_exception": "If suspicion of ML/TF, file STR without completing CDD"
+            }
+        },
+        {
+            "id": "nbfc_node_14",
+            "type": "process",
+            "label": "Risk Categorization - NBFC",
+            "properties": {
+                "paragraph": "20",
+                "categories": [
+                    "Low",
+                    "Medium",
+                    "High"
+                ],
+                "parameters": [
+                    "Customer identity",
+                    "Social/financial status",
+                    "Nature of business activity",
+                    "Business location",
+                    "Geographical risk",
+                    "Products/services offered",
+                    "Delivery channels",
+                    "Transaction types",
+                    "Identity document verifiability"
+                ],
+                "confidentiality": "Must not reveal categorization to customer",
+                "information_sources": [
+                    "FATF Public Statements",
+                    "IBA guidance",
+                    "Other agencies"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_15",
+            "type": "process",
+            "label": "Customer Identification Triggers - NBFC",
+            "properties": {
+                "paragraph": "21",
+                "trigger_cases": [
+                    "Account-based relationship commencement",
+                    "International money transfer (non-account holder)",
+                    "Doubt about existing data authenticity",
+                    "Third-party product sales >₹50,000",
+                    "Own product sales >₹50,000",
+                    "Credit card payments >₹50,000",
+                    "Prepaid/travel card reload >₹50,000",
+                    "Walk-in transactions ≥₹50,000 (single or connected)",
+                    "Structured transactions below ₹50,000"
+                ],
+                "prohibition": "No introductions while opening accounts"
+            }
+        },
+        {
+            "id": "nbfc_node_16",
+            "type": "process",
+            "label": "Third-Party CDD Reliance - NBFC",
+            "properties": {
+                "paragraph": "22",
+                "conditions": [
+                    "Obtain CDD records immediately from third party or CKYCR",
+                    "Third party must provide copies on request without delay",
+                    "Third party must be regulated/supervised",
+                    "Third party must have compliant CDD and record-keeping",
+                    "Third party not in high-risk jurisdiction"
+                ],
+                "ultimate_responsibility": "NBFC remains responsible for CDD and EDD"
+            }
+        },
+        {
+            "id": "nbfc_node_17",
+            "type": "document",
+            "label": "Individual KYC Documents - NBFC",
+            "properties": {
+                "paragraph": "23",
+                "options": [
+                    "Aadhaar (for benefits/subsidies or voluntary)",
+                    "Proof of Aadhaar with offline verification",
+                    "Proof of Aadhaar (if offline verification not possible) + OVD",
+                    "KYC Identifier with consent to download from CKYCR"
+                ],
+                "required": [
+                    "PAN or Form 60"
+                ],
+                "optional": [
+                    "Nature of business proof",
+                    "Financial status proof"
+                ],
+                "aadhaar_notes": [
+                    "Not mandatory unless for benefits",
+                    "Must redact/blackout Aadhaar number when not authenticating",
+                    "Face authentication permitted"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_18",
+            "type": "process",
+            "label": "Digital KYC Process - NBFC",
+            "properties": {
+                "paragraph": "24",
+                "requirements": [
+                    "Authenticated application only",
+                    "Login-id/password or OTP/TOTP access control",
+                    "Customer visits officer location or vice-versa",
+                    "Original OVD in customer possession"
+                ],
+                "watermark_details": [
+                    "CAF number",
+                    "GPS coordinates",
+                    "Officer name and unique employee code",
+                    "Date (DD:MM:YYYY)",
+                    "Time stamp (HH:MM:SS)"
+                ],
+                "photo_requirements": [
+                    "Live photograph only (no printed/videographed)",
+                    "White background",
+                    "No other persons in frame",
+                    "Document photo from above, no skew/tilt",
+                    "Proper lighting"
+                ],
+                "qr_code": "Auto-population from QR code where available",
+                "customer_otp": "Sent to customer's mobile, treated as signature",
+                "officer_otp": "Sent to officer's registered mobile for declaration",
+                "verification_steps": [
+                    "Document info matches entered info",
+                    "Live photo matches document photo",
+                    "All mandatory fields filled"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_19",
+            "type": "process",
+            "label": "Aadhaar OTP e-KYC Accounts - NBFC",
+            "properties": {
+                "paragraph": "25",
+                "restrictions": {
+                    "deposit_balance": "≤ ₹1,00,000",
+                    "annual_credits": "≤ ₹2,00,000",
+                    "term_loans": "≤ ₹60,000 per year"
+                },
+                "validity": "1 year only, must complete full CDD within period",
+                "closure_consequences": {
+                    "deposit_accounts": "Immediate closure if CDD not completed",
+                    "borrowal_accounts": "No further debits allowed"
+                },
+                "customer_declaration": "No other OTP-based accounts with any RE",
+                "monitoring": "Strict procedures with alert systems",
+                "mobile_number": "Only Aadhaar-registered mobile for alerts/OTP",
+                "board_policy": "Required for mobile number change due diligence"
+            }
+        },
+        {
+            "id": "nbfc_node_20",
+            "type": "process",
+            "label": "Video Based Customer Identification (V-CIP) - NBFC",
+            "properties": {
+                "paragraph": "26-27",
+                "use_cases": [
+                    "New individual customer onboarding",
+                    "Proprietor onboarding for proprietorship firms",
+                    "Authorised signatories and BOs for Legal Entities",
+                    "Conversion of OTP-based accounts",
+                    "KYC updation for eligible customers"
+                ],
+                "infrastructure_requirements": [
+                    "Compliance with RBI cyber security guidelines",
+                    "Infrastructure in NBFC's own premises",
+                    "Connection from NBFC's secured network domain",
+                    "End-to-end encryption",
+                    "Customer consent in auditable, alteration-proof manner",
+                    "Prevention of connections from outside India or spoofed IPs"
+                ],
+                "technical_requirements": [
+                    "Live GPS coordinates (geo-tagging)",
+                    "Date and time stamp",
+                    "Face liveness/spoof detection",
+                    "Face matching technology"
+                ],
+                "identification_methods": [
+                    "Aadhaar OTP e-KYC authentication",
+                    "Aadhaar offline verification",
+                    "CKYCR records with KYC identifier",
+                    "Equivalent e-documents including DigiLocker"
+                ],
+                "document_validity": "Aadhaar XML/QR code ≤ 3 working days old",
+                "data_storage": "All data and recordings in India",
+                "concurrent_audit": "Required before accounts made operational"
+            }
+        },
+        {
+            "id": "nbfc_node_21",
+            "type": "process",
+            "label": "Simplified Account Opening - NBFC",
+            "properties": {
+                "paragraph": "28",
+                "conditions": {
+                    "self_attested_photo": true,
+                    "officer_certification": "Signature/thumb impression in presence",
+                    "initial_validity": "12 months",
+                    "balance_limit": "≤ ₹50,000 at any time",
+                    "annual_credit_limit": "≤ ₹1,00,000"
+                },
+                "notification_thresholds": {
+                    "alert_at_balance": "₹40,000",
+                    "alert_at_credit": "₹80,000"
+                },
+                "full_cdd_trigger": "Suspicion of ML/TF or high-risk scenarios",
+                "consequence_of_breach": "No further transactions until full KYC"
+            }
+        },
+        {
+            "id": "nbfc_node_22",
+            "type": "document",
+            "label": "Sole Proprietorship KYC Documents - NBFC",
+            "properties": {
+                "paragraph": "30-32",
+                "proprietor_cdd": "CDD of individual proprietor required",
+                "business_proof_options": [
+                    "Udyam Registration Certificate",
+                    "Shop and Establishment Certificate",
+                    "Sales and income tax returns",
+                    "CST/VAT/GST certificate",
+                    "Sales Tax/Service Tax/Professional Tax registration",
+                    "IEC Code",
+                    "Professional body license/certificate",
+                    "Complete Income Tax Return with firm's income",
+                    "Utility bills (electricity, water, landline)"
+                ],
+                "minimum_documents": "Any two (or one with contact point verification)",
+                "contact_point_verification": "Required when accepting single document"
+            }
+        },
+        {
+            "id": "nbfc_node_23",
+            "type": "document",
+            "label": "Company KYC Documents - NBFC",
+            "properties": {
+                "paragraph": "33",
+                "documents": [
+                    "Certificate of Incorporation",
+                    "Memorandum and Articles of Association",
+                    "PAN",
+                    "Board Resolution and Power of Attorney",
+                    "BO/manager/officer/employee documents (as per para 23)",
+                    "Names of senior management",
+                    "Registered office and principal place of business addresses"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_24",
+            "type": "document",
+            "label": "Partnership Firm KYC Documents - NBFC",
+            "properties": {
+                "paragraph": "34",
+                "documents": [
+                    "Registration Certificate",
+                    "Partnership Deed",
+                    "PAN",
+                    "BO/manager/officer/employee documents (as per para 23)",
+                    "Names of all partners",
+                    "Registered office and principal place of business addresses"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_25",
+            "type": "document",
+            "label": "Trust KYC Documents - NBFC",
+            "properties": {
+                "paragraph": "35",
+                "documents": [
+                    "Registration Certificate",
+                    "Trust Deed",
+                    "PAN or Form 60",
+                    "BO/manager/officer/employee documents (as per para 23)",
+                    "Names of beneficiaries, trustees, settlor, protector, authors",
+                    "Registered office address",
+                    "List of trustees with para 23 documents"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_26",
+            "type": "document",
+            "label": "Unincorporated Association KYC Documents - NBFC",
+            "properties": {
+                "paragraph": "36",
+                "documents": [
+                    "Resolution of managing body",
+                    "PAN or Form 60",
+                    "Power of Attorney",
+                    "BO/manager/officer/employee documents (as per para 23)",
+                    "Additional information to establish legal existence"
+                ],
+                "includes": [
+                    "Unregistered trusts",
+                    "Unregistered partnership firms",
+                    "Societies"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_27",
+            "type": "process",
+            "label": "Ongoing Due Diligence - NBFC",
+            "properties": {
+                "paragraph": "39-41",
+                "monitoring_focus": [
+                    "Large and complex transactions",
+                    "Unusual patterns inconsistent with customer profile",
+                    "Transactions exceeding prescribed thresholds",
+                    "High turnover inconsistent with balance",
+                    "Third-party deposits with cash withdrawals"
+                ],
+                "technology": "May use AI/ML for monitoring",
+                "risk_review_period": "At least every 6 months",
+                "high_risk_monitoring": "More intensified for high-risk accounts",
+                "mlm_monitoring": "Special attention to Multi-level Marketing companies"
+            }
+        },
+        {
+            "id": "nbfc_node_28",
+            "type": "process",
+            "label": "Periodic KYC Updation - NBFC",
+            "properties": {
+                "paragraph": "42",
+                "frequency": {
+                    "high_risk": "2 years",
+                    "medium_risk": "8 years",
+                    "low_risk": "10 years"
+                },
+                "individual_customers": {
+                    "no_change": "Self-declaration via email/mobile/ATM/digital channels/letter",
+                    "address_change_only": "Self-declaration + positive confirmation within 2 months"
+                },
+                "legal_entity_customers": {
+                    "no_change": "Self-declaration with BO accuracy check",
+                    "change_in_info": "Full KYC as for new customer"
+                },
+                "advance_notices": "Minimum 3 intimations (at least 1 by letter)",
+                "reminders": "Minimum 3 reminders (at least 1 by letter)",
+                "deadline": "Process to be implemented by January 1, 2026"
+            }
+        },
+        {
+            "id": "nbfc_node_29",
+            "type": "requirement",
+            "label": "PAN Requirement - NBFC",
+            "properties": {
+                "paragraph": "43",
+                "consequence": "Temporary cessation of operations until PAN/Form 60 submitted",
+                "due_process": "Accessible notice + reasonable opportunity to be heard",
+                "exceptions": "Injury, illness, old age (with enhanced monitoring)",
+                "customer_refusal": "Account closure upon written refusal",
+                "asset_accounts": "Only credits allowed during temporary cessation"
+            }
+        },
+        {
+            "id": "nbfc_node_30",
+            "type": "process",
+            "label": "Enhanced Due Diligence (EDD) - NBFC Non-face-to-face",
+            "properties": {
+                "paragraph": "44",
+                "applicable_modes": [
+                    "CKYCR",
+                    "DigiLocker",
+                    "Equivalent e-documents",
+                    "Certified copies (NRIs/PIOs)"
+                ],
+                "measures": [
+                    "V-CIP as first option if available",
+                    "No alternate mobile numbers for transaction OTP/updates",
+                    "Current address verification through positive confirmation",
+                    "PAN verification from issuing authority",
+                    "First transaction from KYC-compliant bank account",
+                    "High-risk categorization",
+                    "Enhanced monitoring until face-to-face or V-CIP verification"
+                ],
+                "board_policy": "Required for mobile number change due diligence"
+            }
+        },
+        {
+            "id": "nbfc_node_31",
+            "type": "entity",
+            "label": "Politically Exposed Person (PEP) - NBFC",
+            "properties": {
+                "paragraph": "45",
+                "definition": "Individuals entrusted with prominent public functions by foreign country",
+                "examples": [
+                    "Heads of States/Governments",
+                    "Senior politicians",
+                    "Senior government/judicial/military officers",
+                    "Senior executives of state-owned corporations",
+                    "Important political party officials"
+                ],
+                "includes": "Family members and close associates",
+                "requirements": [
+                    "Risk management systems to identify PEPs",
+                    "Source of funds/wealth verification",
+                    "Senior management approval for account opening",
+                    "Enhanced ongoing monitoring",
+                    "Senior management approval to continue if existing customer becomes PEP"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_32",
+            "type": "process",
+            "label": "Professional Intermediary Accounts - NBFC",
+            "properties": {
+                "paragraph": "46",
+                "requirements": [
+                    "Identify clients when intermediary acts for single client",
+                    "Pooled accounts permitted for mutual funds, pension funds",
+                    "No accounts for intermediaries with client confidentiality preventing disclosure",
+                    "Identify BOs for sub-accounts or co-mingled funds",
+                    "May rely on intermediary's CDD if intermediary regulated and supervised",
+                    "NBFC retains ultimate responsibility"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_33",
+            "type": "requirement",
+            "label": "Record Management - NBFC",
+            "properties": {
+                "paragraph": "47",
+                "transaction_record_retention": "5 years from transaction date",
+                "identification_record_retention": "5 years after business relationship ends",
+                "availability": "Swiftly available to competent authorities on request",
+                "reconstruction_capability": "Must permit reconstruction of individual transactions",
+                "required_fields": [
+                    "Nature",
+                    "Amount",
+                    "Currency",
+                    "Date",
+                    "Parties"
+                ],
+                "format": "Hard or soft format acceptable"
+            }
+        },
+        {
+            "id": "nbfc_node_34",
+            "type": "entity",
+            "label": "Non-Profit Organization (NPO) - NBFC",
+            "properties": {
+                "paragraph": "48",
+                "definition": "Entities under Section 2(15) of Income Tax Act, 1961 registered as trust/society/Section 8 company",
+                "obligation": "Register details on DARPAN Portal (NITI Aayog)",
+                "record_retention": "5 years after business relationship ends or account closure"
+            }
+        },
+        {
+            "id": "nbfc_node_35",
+            "type": "requirement",
+            "label": "Reporting to FIU-IND - NBFC",
+            "properties": {
+                "paragraph": "49-53",
+                "report_types": [
+                    "Cash Transaction Reports (CTR)",
+                    "Suspicious Transaction Reports (STR)"
+                ],
+                "reporting_authority": "Director, Financial Intelligence Unit-India",
+                "confidentiality": "Must maintain confidentiality of reporting",
+                "software_requirement": "Robust alert generation system",
+                "non-restriction": "No restrictions on accounts merely based on STR filing",
+                "delay_consequence": "Each day of delay constitutes separate violation"
+            }
+        },
+        {
+            "id": "nbfc_node_36",
+            "type": "compliance",
+            "label": "UAPA Section 51A Obligations - NBFC",
+            "properties": {
+                "paragraph": "54",
+                "applicable_lists": [
+                    "UNSC 1267/1989/2253 (ISIL/Da'esh & Al-Qaida)",
+                    "UNSC 1988 (Taliban)",
+                    "Prevention and Suppression of Terrorism Order, 2007 Schedules"
+                ],
+                "check_frequency": "Daily",
+                "reporting_to": [
+                    "FIU-IND",
+                    "Ministry of Home Affairs"
+                ],
+                "freezing_procedure": "As per Annex I Order dated February 2, 2021",
+                "nodal_officer_list": "Available on MHA website"
+            }
+        },
+        {
+            "id": "nbfc_node_37",
+            "type": "compliance",
+            "label": "WMD Act Section 12A Obligations - NBFC",
+            "properties": {
+                "paragraph": "55",
+                "applicable_list": "UNSCR 1718 Sanctions List (DPRK)",
+                "check_points": [
+                    "Account opening",
+                    "Periodic basis"
+                ],
+                "reporting_to": [
+                    "Central Nodal Officer (FIU-IND Director)",
+                    "State Nodal Officer",
+                    "RBI"
+                ],
+                "freezing_procedure": "As per Annex II Order dated September 1, 2023",
+                "designated_list_source": "FIU-India portal"
+            }
+        },
+        {
+            "id": "nbfc_node_38",
+            "type": "compliance",
+            "label": "FATF Recommendation Implementation - NBFC",
+            "properties": {
+                "paragraph": "59",
+                "requirements": [
+                    "Consider FATF Statements circulated by RBI",
+                    "Apply EDD to high-risk jurisdictions",
+                    "Give special attention to transactions with insufficiently applying countries",
+                    "Examine background and purpose of transactions",
+                    "Retain written findings with documents",
+                    "Make available to RBI/authorities on request"
+                ],
+                "note": "Does not preclude legitimate trade with mentioned jurisdictions"
+            }
+        },
+        {
+            "id": "nbfc_node_39",
+            "type": "system",
+            "label": "Central KYC Records Registry (CKYCR) - NBFC",
+            "properties": {
+                "paragraph": "63",
+                "operator": "CERSAI",
+                "upload_deadline": "10 days from account commencement",
+                "applicable_accounts_individuals": "From April 1, 2017",
+                "applicable_accounts_legal_entities": "From April 1, 2021",
+                "upload_templates": "Individual and LE templates from CERSAI",
+                "kyc_identifier": "Must be communicated to customer",
+                "incremental_upload": "At periodic updation or when updated info obtained",
+                "update_timeline": "Within 7 days of obtaining updated information",
+                "downloading_procedure": "Use KYC Identifier, no re-verification if current",
+                "downloader_responsibility": "Responsible for all CDD aspects except identity/address verification"
+            }
+        },
+        {
+            "id": "nbfc_node_40",
+            "type": "compliance",
+            "label": "FATCA/CRS Compliance - NBFC",
+            "properties": {
+                "paragraph": "64",
+                "legal_framework": "Income Tax Rules 114F, 114G, 114H",
+                "requirements": [
+                    "Register on Income Tax e-filing portal",
+                    "Submit Form 61B or NIL report with Designated Director's digital signature",
+                    "Develop IT framework for due diligence",
+                    "Audit system for IT framework and compliance",
+                    "Constitute High-Level Monitoring Committee under Designated Director"
+                ],
+                "exchange_rate_source": "FEDAI website for due diligence",
+                "guidance": "CBDT Guidance Note on FATCA/CRS"
+            }
+        },
+        {
+            "id": "nbfc_node_41",
+            "type": "entity",
+            "label": "Money Mule - NBFC Context",
+            "properties": {
+                "paragraph": "65",
+                "definition": "Accounts used to launder proceeds of fraud schemes (phishing, identity theft)",
+                "modus_operandi": "Criminals recruit third parties as 'money mules'",
+                "bank_obligation": "Identify, monitor, report STR",
+                "consequence_of_non_reporting": "Deemed non-compliance if established as money mule but no STR filed"
+            }
+        },
+        {
+            "id": "nbfc_node_42",
+            "type": "process",
+            "label": "Wire Transfer Requirements - NBFC",
+            "properties": {
+                "paragraph": "69",
+                "cross_border_required_fields": [
+                    "Originator name",
+                    "Originator account number (if account used)",
+                    "Originator address/national ID/Customer ID/DOB",
+                    "Beneficiary name",
+                    "Beneficiary account number (if account used)"
+                ],
+                "batch_transfer_exception": "Individual transfers exempt if batch contains full info and each has account/ref number",
+                "domestic_requirements": {
+                    "account_holder_originator": "Same as cross-border requirements",
+                    "non_account_holder_originator_≥₹50,000": "Same as cross-border requirements",
+                    "non_account_holder_originator_<₹50,000": "Unique transaction reference number sufficient if traceable within 3 days"
+                },
+                "ordering_nbfc_responsibilities": [
+                    "Ensure complete and accurate information",
+                    "Identify structuring below ₹50,000",
+                    "File STR if suspicious",
+                    "Do not execute if requirements cannot be met"
+                ],
+                "intermediary_nbfc_responsibilities": [
+                    "Retain all originator and beneficiary information",
+                    "Keep records for 5 years if technical limitations prevent retention",
+                    "Identify missing information",
+                    "Risk-based policies for execution/rejection/suspension"
+                ],
+                "beneficiary_nbfc_responsibilities": [
+                    "Identify missing information",
+                    "Risk-based policies for execution/rejection/suspension",
+                    "File STR if suspicious"
+                ],
+                "unregulated_entities": "NBFC fully responsible for information flow, must have termination clause in agreements"
+            }
+        },
+        {
+            "id": "nbfc_node_43",
+            "type": "requirement",
+            "label": "Third Party Product Sales - NBFC",
+            "properties": {
+                "paragraph": "71",
+                "threshold": "₹50,000 and above",
+                "requirements": [
+                    "Customer identification (walk-in customers)",
+                    "Record maintenance (as per para 47)",
+                    "AML software for CTR/STR alerts",
+                    "Debit to account or against cheque payment",
+                    "PAN verification"
+                ],
+                "applicable_to": [
+                    "Sale of third-party products",
+                    "Sale of NBFC's own products",
+                    "Credit card dues payment",
+                    "Prepaid/travel card sale and reload"
+                ]
+            }
+        },
+        {
+            "id": "nbfc_node_44",
+            "type": "requirement",
+            "label": "Employee Screening and Training - NBFC",
+            "properties": {
+                "paragraph": "72",
+                "screening": "Know Your Employee/Staff policy",
+                "staff_qualities": [
+                    "High integrity and ethical standards",
+                    "Good understanding of KYC/AML/CFT standards",
+                    "Effective communication skills",
+                    "Ability to keep up with changing landscape"
+                ],
+                "training_program": "Ongoing, differentiated for frontline, compliance, new customer staff",
+                "front_desk_training": "Handle issues from lack of customer education",
+                "audit_staff": "Properly trained and well-versed in KYC/AML/CFT"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_2",
+            "relationship": "APPLIES_TO"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_3",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_4",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_5",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_6",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_7",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_8",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_9",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_10",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_11",
+            "relationship": "ESTABLISHES_ROLE"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_12",
+            "relationship": "ESTABLISHES_ROLE"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_13",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_14",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_15",
+            "relationship": "MANDATES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_16",
+            "relationship": "PERMITS"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_17",
+            "relationship": "SPECIFIES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_18",
+            "relationship": "AUTHORIZES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_19",
+            "relationship": "AUTHORIZES_WITH_RESTRICTIONS"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_20",
+            "relationship": "AUTHORIZES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_21",
+            "relationship": "AUTHORIZES_SIMPLIFIED"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_22",
+            "relationship": "SPECIFIES_FOR"
+        },
+        {
+            "source": "nbfc_node_22",
+            "target": "nbfc_node_2",
+            "relationship": "APPLIES_TO_ENTITY_TYPE"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_23",
+            "relationship": "SPECIFIES_FOR"
+        },
+        {
+            "source": "nbfc_node_23",
+            "target": "nbfc_node_2",
+            "relationship": "APPLIES_TO_ENTITY_TYPE"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_24",
+            "relationship": "SPECIFIES_FOR"
+        },
+        {
+            "source": "nbfc_node_24",
+            "target": "nbfc_node_2",
+            "relationship": "APPLIES_TO_ENTITY_TYPE"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_25",
+            "relationship": "SPECIFIES_FOR"
+        },
+        {
+            "source": "nbfc_node_25",
+            "target": "nbfc_node_2",
+            "relationship": "APPLIES_TO_ENTITY_TYPE"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_26",
+            "relationship": "SPECIFIES_FOR"
+        },
+        {
+            "source": "nbfc_node_26",
+            "target": "nbfc_node_2",
+            "relationship": "APPLIES_TO_ENTITY_TYPE"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_27",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_28",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_29",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_30",
+            "relationship": "REQUIRES_FOR"
+        },
+        {
+            "source": "nbfc_node_30",
+            "target": "nbfc_node_15",
+            "relationship": "ENHANCES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_31",
+            "relationship": "DEFINES_AND_REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_32",
+            "relationship": "REGULATES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_33",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_34",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_35",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_36",
+            "relationship": "INCORPORATES_BY_REFERENCE"
+        },
+        {
+            "source": "nbfc_node_36",
+            "target": "nbfc_node_2",
+            "relationship": "OBLIGATES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_37",
+            "relationship": "INCORPORATES_BY_REFERENCE"
+        },
+        {
+            "source": "nbfc_node_37",
+            "target": "nbfc_node_2",
+            "relationship": "OBLIGATES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_38",
+            "relationship": "REQUIRES_COMPLIANCE_WITH"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_39",
+            "relationship": "ESTABLISHES"
+        },
+        {
+            "source": "nbfc_node_39",
+            "target": "nbfc_node_2",
+            "relationship": "SERVES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_40",
+            "relationship": "REQUIRES_COMPLIANCE_WITH"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_41",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "nbfc_node_41",
+            "target": "nbfc_node_2",
+            "relationship": "MUST_BE_IDENTIFIED_BY"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_42",
+            "relationship": "REGULATES"
+        },
+        {
+            "source": "nbfc_node_42",
+            "target": "nbfc_node_2",
+            "relationship": "OBLIGATES"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_43",
+            "relationship": "REGULATES"
+        },
+        {
+            "source": "nbfc_node_43",
+            "target": "nbfc_node_2",
+            "relationship": "OBLIGATES_WHEN_ACTING_AS_AGENT"
+        },
+        {
+            "source": "nbfc_node_1",
+            "target": "nbfc_node_44",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "nbfc_node_44",
+            "target": "nbfc_node_2",
+            "relationship": "OBLIGATES"
+        },
+        {
+            "source": "nbfc_node_3",
+            "target": "nbfc_node_2",
+            "relationship": "MUST_BE_IDENTIFIED_FOR"
+        },
+        {
+            "source": "nbfc_node_4",
+            "target": "nbfc_node_17",
+            "relationship": "IS_ACCEPTED_AS"
+        },
+        {
+            "source": "nbfc_node_11",
+            "target": "nbfc_node_12",
+            "relationship": "CANNOT_BE_SAME_AS"
+        },
+        {
+            "source": "nbfc_node_14",
+            "target": "nbfc_node_28",
+            "relationship": "DETERMINES_FREQUENCY_OF"
+        },
+        {
+            "source": "nbfc_node_19",
+            "target": "nbfc_node_20",
+            "relationship": "CAN_BE_CONVERTED_VIA"
+        },
+        {
+            "source": "nbfc_node_21",
+            "target": "nbfc_node_17",
+            "relationship": "REQUIRES_FULL_CDD_AFTER"
+        },
+        {
+            "source": "nbfc_node_33",
+            "target": "nbfc_node_35",
+            "relationship": "SUPPORTS"
+        },
+        {
+            "source": "nbfc_node_39",
+            "target": "nbfc_node_17",
+            "relationship": "STORES"
+        },
+        {
+            "source": "nbfc_node_39",
+            "target": "nbfc_node_23",
+            "relationship": "STORES"
+        },
+        {
+            "source": "nbfc_node_39",
+            "target": "nbfc_node_24",
+            "relationship": "STORES"
+        },
+        {
+            "source": "nbfc_node_39",
+            "target": "nbfc_node_25",
+            "relationship": "STORES"
+        },
+        {
+            "source": "nbfc_node_39",
+            "target": "nbfc_node_26",
+            "relationship": "STORES"
+        },
+        {
+            "source": "nbfc_node_42",
+            "target": "nbfc_node_33",
+            "relationship": "RECORDS_MUST_BE_PRESERVED_UNDER"
+        }
+    ],
+    "metadata": {
+        "generated_from": "NonBankingFinancialCompaniesKYCMD.pdf",
+        "extraction_date": "2026-03-05",
+        "node_count": 44,
+        "edge_count": 70,
+        "key_topics": [
+            "KYC",
+            "AML",
+            "CFT",
+            "NBFC Compliance",
+            "Customer Due Diligence",
+            "Beneficial Owner",
+            "Risk Management",
+            "Digital KYC",
+            "V-CIP",
+            "Reporting Requirements",
+            "International Obligations",
+            "Sanctions Compliance"
+        ],
+        "comparison_with_commercial_banks": {
+            "similarities": [
+                "Beneficial Owner definition identical",
+                "OVD definition identical",
+                "CDD components identical",
+                "Risk categorization identical",
+                "Periodic updation frequency identical",
+                "V-CIP standards identical"
+            ],
+            "differences": [
+                "Applicability explicitly excludes NBFCs without customer interface",
+                "Simplified account opening provisions differ",
+                "Legal framework includes NHB Act, 1987",
+                "Specific NBFC-focused provisions"
+            ]
+        }
+    }
+}

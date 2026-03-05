@@ -1,0 +1,856 @@
+{
+    "document": {
+        "id": "rbi_payment_aggregator_md_2025",
+        "title": "Reserve Bank of India (Regulation of Payment Aggregators) Directions, 2025",
+        "effective_date": "2025-09-15",
+        "document_type": "master_direction",
+        "issuing_authority": "Reserve Bank of India",
+        "notification_number": "RBI/DPSS/2025-26/141 CO.DPSS.POLC.No.S-633/02-14-008/2025-26",
+        "applicable_to": [
+            "Bank entities undertaking PA business",
+            "Non-bank entities undertaking PA business",
+            "Authorised Dealer banks",
+            "Scheduled Commercial Banks engaging with PA entities"
+        ],
+        "legal_framework": [
+            "Payment and Settlement Systems Act, 2007 (Section 18 read with Section 10(2))",
+            "Foreign Exchange Management Act (FEMA), 1999 (Section 10(4) and Section 11(1))"
+        ]
+    },
+    "nodes": [
+        {
+            "id": "pa_node_1",
+            "type": "regulation",
+            "label": "Payment Aggregator Directions 2025",
+            "properties": {
+                "chapter": "I",
+                "section": "Preliminary",
+                "paragraph": "1-4",
+                "category": "general"
+            }
+        },
+        {
+            "id": "pa_node_2",
+            "type": "definition",
+            "label": "Payment Aggregator (PA)",
+            "properties": {
+                "paragraph": "4(i)",
+                "definition": "Entity that facilitates aggregation of payments from customers to merchants through one or more payment channels via merchant's interface (physical/virtual) for purchase of goods, services or investment products, and subsequently settles collected funds to merchants",
+                "categories": [
+                    "PA - Physical (PA-P)",
+                    "PA - Cross Border (PA-CB)",
+                    "PA - Online (PA-O)"
+                ]
+            }
+        },
+        {
+            "id": "pa_node_3",
+            "type": "definition",
+            "label": "PA - Physical (PA-P)",
+            "properties": {
+                "paragraph": "4(i)(i)",
+                "definition": "PA that facilitates transactions where both acceptance device and payment instrument are physically present in close proximity while making the transaction"
+            }
+        },
+        {
+            "id": "pa_node_4",
+            "type": "definition",
+            "label": "PA - Cross Border (PA-CB)",
+            "properties": {
+                "paragraph": "4(i)(ii)",
+                "definition": "PA that facilitates aggregation of cross-border payments for current account transactions (not prohibited under FEMA) for onboarded merchants through e-commerce mode",
+                "sub_categories": [
+                    "PA-CB facilitating inward transaction",
+                    "PA-CB facilitating outward transaction"
+                ],
+                "exclusions": [
+                    "AD Category-II entities facilitating current account transactions not prohibited under FEMA (other than purchase/sale of goods or services)",
+                    "Card transactions where foreign exchange settlement is facilitated by card network and aggregator receives payment in local currency"
+                ]
+            }
+        },
+        {
+            "id": "pa_node_5",
+            "type": "definition",
+            "label": "PA - Online (PA-O)",
+            "properties": {
+                "paragraph": "4(i)(iii)",
+                "definition": "PA that facilitates transactions where acceptance device and payment instrument are not present in close proximity while making the transaction"
+            }
+        },
+        {
+            "id": "pa_node_6",
+            "type": "definition",
+            "label": "Payment Gateway (PG)",
+            "properties": {
+                "paragraph": "4(j)",
+                "definition": "Entity that provides technology infrastructure to route and facilitate processing of a payment transaction without any involvement in handling of funds",
+                "note": "PG does not fall within scope of this Master Direction but encouraged to adopt baseline technology recommendations"
+            }
+        },
+        {
+            "id": "pa_node_7",
+            "type": "definition",
+            "label": "Cash-on-delivery transaction",
+            "properties": {
+                "paragraph": "4(a)",
+                "definition": "Merchant transaction wherein banknotes or currency notes, being legal tender in India, is offered or tendered for and at the time of delivery of goods and/or service(s)"
+            }
+        },
+        {
+            "id": "pa_node_8",
+            "type": "definition",
+            "label": "Contact Point Verification (CPV)",
+            "properties": {
+                "paragraph": "4(b)",
+                "definition": "Physical verification of the address or place of business of the merchant"
+            }
+        },
+        {
+            "id": "pa_node_9",
+            "type": "definition",
+            "label": "E-commerce",
+            "properties": {
+                "paragraph": "4(c)",
+                "definition": "Buying and selling of goods and services, including digital products, conducted over digital and electronic network",
+                "includes": [
+                    "Network of computers",
+                    "Television channels",
+                    "Internet applications (web pages, extranets, mobiles)"
+                ]
+            }
+        },
+        {
+            "id": "pa_node_10",
+            "type": "definition",
+            "label": "Marketplace",
+            "properties": {
+                "paragraph": "4(e)",
+                "definition": "E-commerce entity which provides an information technology platform on a digital or electronic network to facilitate transactions between buyer(s) and seller(s)"
+            }
+        },
+        {
+            "id": "pa_node_11",
+            "type": "definition",
+            "label": "Merchant",
+            "properties": {
+                "paragraph": "4(f)",
+                "definition": "Entity or marketplace that sells goods, provides services, or offers investment products, and includes exporters and overseas sellers"
+            }
+        },
+        {
+            "id": "pa_node_12",
+            "type": "definition",
+            "label": "Inward transaction",
+            "properties": {
+                "paragraph": "4(d)",
+                "definition": "Transaction involving the inflow of foreign exchange"
+            }
+        },
+        {
+            "id": "pa_node_13",
+            "type": "definition",
+            "label": "Outward transaction",
+            "properties": {
+                "paragraph": "4(g)",
+                "definition": "Transaction involving the outflow of foreign exchange"
+            }
+        },
+        {
+            "id": "pa_node_14",
+            "type": "definition",
+            "label": "Payment channel",
+            "properties": {
+                "paragraph": "4(h)",
+                "definition": "Method or manner through which payment instruction is initiated and processed in a payment system"
+            }
+        },
+        {
+            "id": "pa_node_15",
+            "type": "definition",
+            "label": "KYC Reference",
+            "properties": {
+                "paragraph": "4(k)",
+                "referenced_definitions": [
+                    "Central KYC Records Registry (CKYCR)",
+                    "Officially Valid Document (OVD)",
+                    "Equivalent e-document",
+                    "Digital KYC",
+                    "Video-based Customer Identification Procedure (V-CIP)"
+                ],
+                "source": "Master Direction - Know Your Customer (KYC) Direction, 2016 (as amended)"
+            }
+        },
+        {
+            "id": "pa_node_16",
+            "type": "requirement",
+            "label": "Authorisation for PA Business",
+            "properties": {
+                "paragraph": "5",
+                "bank_requirement": "No authorisation required for banks",
+                "non_bank_requirement": "Must seek authorisation through RBI online portal",
+                "entity_type": "Company incorporated in India under Companies Act, 2013",
+                "moa_requirement": "Must cover proposed PA activity",
+                "timeline_for_NOC": "45 days from obtaining NOC from financial sector regulator",
+                "deadline_for_PA-P_application": "December 31, 2025",
+                "wind_up_deadline_for_non_applicants": "February 28, 2026"
+            }
+        },
+        {
+            "id": "pa_node_17",
+            "type": "requirement",
+            "label": "Capital Requirements for PA",
+            "properties": {
+                "paragraph": "6",
+                "minimum_networth_at_application": "₹15 crore",
+                "minimum_networth_by_third_year": "₹25 crore",
+                "maintenance": "On ongoing basis",
+                "networth_computation_reference": "RBI circular DNBR (PD) CC.No. 002/03.10.119/2014-15 dated January 16, 2015",
+                "networth_inclusions": "Compulsorily convertible preference shares (non-cumulative or cumulative)",
+                "networth_deductions": "Deferred Tax Assets",
+                "fdi_compliance": "Consolidated FDI Policy and FEMA regulations",
+                "auditor_certificate": "Required with application (Annexure 2.1)"
+            }
+        },
+        {
+            "id": "pa_node_18",
+            "type": "requirement",
+            "label": "Governance Requirements for PA",
+            "properties": {
+                "paragraph": "7",
+                "management": "Professionally managed",
+                "fit_and_proper_criteria": {
+                    "positive_attributes": [
+                        "Financial integrity",
+                        "Good reputation and character",
+                        "Honesty"
+                    ],
+                    "disqualifications": [
+                        "Conviction for moral turpitude/economic offence/RBI law offences",
+                        "Undischarged insolvent",
+                        "Restrained/debarred from financial system by regulatory authority",
+                        "Unsound mind by court order",
+                        "Financially not sound"
+                    ]
+                },
+                "change_in_control": "Prior approval required per circular CO.DPSS.POLC.No.S-590/02-14-006/2022-23 dated July 4, 2022"
+            }
+        },
+        {
+            "id": "pa_node_19",
+            "type": "requirement",
+            "label": "Dispute Management Framework",
+            "properties": {
+                "paragraph": "8",
+                "requirements": [
+                    "Mechanism to handle payment-related disputes",
+                    "Timelines for processing refunds",
+                    "Adherence to TAT for failed transactions (circular DPSS.CO.PD No.629/02.01.014/2019-20 dated September 20, 2019)",
+                    "Proper reason codes for chargebacks",
+                    "Response to disputes against onboarded merchants"
+                ],
+                "agreement_requirements": [
+                    "Clear delineation of roles between PA, merchants, acquiring banks, stakeholders",
+                    "Coverage of refunds, failed transactions, return policy, grievance redressal, reconciliation"
+                ],
+                "disclosure_requirements": [
+                    "Merchant policies on website/app",
+                    "Privacy policy on website/app",
+                    "Terms and conditions on website/app"
+                ],
+                "officer_appointment": "Officer responsible for merchant issues with escalation matrix displayed on website"
+            }
+        },
+        {
+            "id": "pa_node_20",
+            "type": "requirement",
+            "label": "Security, Fraud Prevention and Risk Management",
+            "properties": {
+                "paragraph": "9",
+                "requirements": [
+                    "Information and Data Security infrastructure",
+                    "Systems for fraud detection and prevention",
+                    "Merchant infrastructure compliance with PCI-DSS and PCI-SSF",
+                    "Board approved Information Security Policy",
+                    "Adherence to baseline technology recommendations (Annexure 1)",
+                    "Compliance with data storage requirements (circular DPSS.CO.OD No.2785/06.08.005/2017-2018 dated April 6, 2018)",
+                    "Annual system audit including cyber security audit by CERT-In empanelled auditors",
+                    "Compliance with Cyber Resilience Master Direction (circular CO.DPSS.OVRST.No.S447/06-26-002/2024-25 dated July 30, 2024)"
+                ]
+            }
+        },
+        {
+            "id": "pa_node_21",
+            "type": "requirement",
+            "label": "General Directions for PA",
+            "properties": {
+                "paragraph": "10",
+                "requirements": [
+                    "Aggregate funds only for merchants with contractual relationship",
+                    "No marketplace business",
+                    "Follow MDR instructions",
+                    "Display all charges distinctly to payer prior to transaction",
+                    "No transaction amount limits for payment modes (responsibility lies with issuing bank/non-bank entity)",
+                    "No ATM PIN for card-not-present transactions",
+                    "Refunds to original payment method (unless payer instructs alternate mode belonging to same payer)"
+                ],
+                "pg_encouragement": "PG encouraged to adopt baseline technology recommendations (Annexure 1)",
+                "pg_outsourcing_framework": "May avail PG services per circulars on IT Services, Outsourcing Framework, and Managing Risks in Outsourcing"
+            }
+        },
+        {
+            "id": "pa_node_22",
+            "type": "requirement",
+            "label": "Specific Directions for PA-CB",
+            "properties": {
+                "paragraph": "11",
+                "requirements": [
+                    "Separate funds for inward and outward transactions",
+                    "No co-mingling or netting off of inward/outward transactions",
+                    "May directly onboard foreign merchants or enter agreement with e-commerce marketplaces/entities abroad",
+                    "Outward transactions using any payment instrument except small PPI",
+                    "No foreign currency purchase/sale from/to entity other than AD",
+                    "Maximum transaction value: ₹25 lakh"
+                ],
+                "ad_bank_responsibilities": [
+                    "Ensure FEMA compliance for InCA/OCA",
+                    "Automated processes to fetch information from PA-CB"
+                ],
+                "transaction_identification": "Must be identified as cross-border transaction",
+                "documentation": "Provide documents to AD bank for EDPMS/IDPMS closure",
+                "non_inr_settlement": "Permitted only for directly onboarded Indian exporters (inward transactions)"
+            }
+        },
+        {
+            "id": "pa_node_23",
+            "type": "requirement",
+            "label": "Reporting Requirements",
+            "properties": {
+                "paragraph": "12",
+                "reports": {
+                    "annual": [
+                        "Net-worth Certificate with audited annual report by September 30 (Annexure 2.1)",
+                        "IS Audit Report and Cyber Security Audit Report"
+                    ],
+                    "quarterly": [
+                        "Auditor's Certificate on Escrow Account Balance by 15th of month following quarter end (Annexure 2.2, 2.3)",
+                        "Bankers' Certificate on Escrow Account Debits and Credits (PA-O/PA-P)",
+                        "Bankers' Certificate on InCA/OCA Debits and Credits (PA-CB)"
+                    ],
+                    "monthly": [
+                        "Statistics of Transactions Handled by 7th of next month (Annexure 2.4)"
+                    ],
+                    "non_periodic": [
+                        "Declaration and Undertaking by Director on Board changes (Annexure 2.5)"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "pa_node_24",
+            "type": "requirement",
+            "label": "Due Diligence by PA",
+            "properties": {
+                "paragraph": "13",
+                "requirements": [
+                    "Undertake CDD of merchants per MD on KYC",
+                    "Retrieve merchant's KYC record from CKYCR with consent",
+                    "Follow MD on KYC process if CKYCR record not updated"
+                ],
+                "alternative_cdd_for_small_merchants": {
+                    "threshold_turnover": "≤ ₹40 lakh annual turnover or ≤ ₹5 lakh annual export turnover",
+                    "process": [
+                        "Obtain and verify PAN/Form 60 from issuing authority",
+                        "Conduct CPV of merchant",
+                        "Obtain certified copy of one OVD of proprietor/power of attorney holder"
+                    ]
+                },
+                "other_requirements": [
+                    "Background and antecedent check of merchant",
+                    "If contracting with another PA for onboarding, that PA responsible for due diligence",
+                    "Facilitate allotment of Merchant Category Code and Merchant ID/Terminal ID",
+                    "Ensure marketplace does not accept payments for sellers not onboarded",
+                    "Mechanisms to ensure funds credited only to merchant's bank account",
+                    "Monitor subsequent transactions for consistency with business profile",
+                    "Register with FIU-IND and meet reporting requirements"
+                ],
+                "existing_merchants_deadline": "December 31, 2025 for compliance",
+                "new_merchants_deadline": "From January 1, 2026, onboard as per prescribed requirements"
+            }
+        },
+        {
+            "id": "pa_node_25",
+            "type": "requirement",
+            "label": "Responsibilities of Acquiring Bank",
+            "properties": {
+                "paragraph": "14",
+                "requirements": [
+                    "Have policy for processing payments for merchants acquired through authorised non-bank PA",
+                    "Need not undertake CDD of merchant but must be able to obtain required details when needed",
+                    "Ensure merchants onboarded by PA comply with acquiring bank's merchant acquiring policy"
+                ]
+            }
+        },
+        {
+            "id": "pa_node_26",
+            "type": "process",
+            "label": "Due Diligence through Assisted Mode",
+            "properties": {
+                "paragraph": "15",
+                "permitted_agent_activities": [
+                    "Digital KYC process (in lieu of Business Correspondents) per MD on KYC Annex I",
+                    "Assisted V-CIP for individual/proprietor/POA holder/BO/authorised signatory per MD on KYC Paragraph 18"
+                ],
+                "agent_due_diligence": "PA shall carry out due diligence of appointed agents",
+                "ultimate_responsibility": "PA remains responsible for due diligence"
+            }
+        },
+        {
+            "id": "pa_node_27",
+            "type": "financial_instrument",
+            "label": "Escrow Account for PA",
+            "properties": {
+                "paragraph": "16",
+                "requirements": {
+                    "domestic_escrow": {
+                        "bank_type": "Scheduled Commercial Bank (SCB)",
+                        "purpose": "Collection of funds on behalf of merchants",
+                        "currency": "INR",
+                        "prefunding": "Allowed",
+                        "withdrawal_of_prefunding": "Not permitted",
+                        "additional_accounts": "One additional account in different SCB",
+                        "inter_escrow_transfer": "Auditor's certificate needed",
+                        "permitted_credits": [
+                            "Receipt of funds from payers for merchants towards purchase of goods/services/investments"
+                        ],
+                        "permitted_debits": [
+                            "Settlement to merchants",
+                            "Payment to third party (with conditions: merchant turnover >₹40 lakh or export >₹5 lakh, third party is payee interfacing with payer)",
+                            "Commission to PA"
+                        ],
+                        "day_end_balance": "Not less than amount realised but not settled to merchants",
+                        "interest": "Not payable except on core portion (subject to paragraph 17)"
+                    },
+                    "inward_collection_account_inca": {
+                        "bank_type": "Authorised Dealer Category-I SCB",
+                        "purpose": "Collection of proceeds of inward transactions on behalf of merchants",
+                        "currency": "Separate account for INR and each non-INR currency",
+                        "prefunding": "Not permitted",
+                        "additional_accounts": "One additional account in different SCB (for each currency)",
+                        "inter_escrow_transfer": "Not permitted",
+                        "interest": "No interest payable"
+                    },
+                    "outward_collection_account_oca": {
+                        "bank_type": "Authorised Dealer Category-I SCB",
+                        "purpose": "Collection of proceeds of outward transactions to overseas sellers",
+                        "currency": "INR",
+                        "additional_accounts": "One additional account in different SCB",
+                        "interest": "No interest payable"
+                    }
+                },
+                "timelines_for_existing_pa": "Within 2 months from authorisation date",
+                "protection_availability": "Protection under paragraph 16(b) available only after authorisation",
+                "settlement_timelines": "As per fair and equitable agreement with merchant"
+            }
+        },
+        {
+            "id": "pa_node_28",
+            "type": "financial_instrument",
+            "label": "Core Portion of Escrow Account",
+            "properties": {
+                "paragraph": "17",
+                "definition": "Lowest daily outstanding balance in escrow account on a fortnightly basis, averaged over 26 fortnights",
+                "calculation_method": {
+                    "step1": "Compute lowest daily outstanding balance (LB) fortnightly for 26 fortnights from preceding month",
+                    "step2": "Calculate average of lowest fortnightly outstanding balances [(LB1+LB2+...+LB26)/26]",
+                    "step3": "Average balance = Core Portion eligible to earn interest"
+                },
+                "eligibility": "Entities in business for 26 fortnights with accounts audited for full accounting year",
+                "restrictions": [
+                    "No loan against core portion",
+                    "No receipt for deposits entitling PA to funds",
+                    "No lien on amount held"
+                ],
+                "calculation_per_account": "Core portion calculated separately for each escrow account",
+                "disclosure": "Escrow balance clearly disclosed in auditor's certificates to RBI (quarterly and annual)"
+            }
+        },
+        {
+            "id": "pa_node_29",
+            "type": "requirement",
+            "label": "General Directions on Escrow Account",
+            "properties": {
+                "paragraph": "18",
+                "requirements": [
+                    "Submit list of merchants to bank maintaining escrow account, update before settlement",
+                    "Bank to ensure payments only to eligible merchants for permissible debits/credits",
+                    "Exclusive clause in PA-bank agreement for usage only as per permissible debits/credits",
+                    "No operation for Cash-on-Delivery transactions",
+                    "Outward transaction funds may be received in escrow or directly in OCA, onward transfer only by debit to OCA",
+                    "If PA-CB does domestic PA activity, InCA/OCA separate from domestic escrow accounts"
+                ],
+                "auditor_certificate": "Statutory auditor certificate on escrow balance compliance per Annexure 2 (separate for domestic and cross-border)",
+                "account_transfer": "If shifting escrow account, effect in time-bound manner without impacting payment cycle, under advice to RBI",
+                "bank_ndt": "Outstanding balance in escrow account part of NDTL for reserve requirements",
+                "reversed_transactions": "Credits for reversed transactions routed back through escrow unless refund directly managed by merchant with payer awareness",
+                "chargeback_rights": "Remain unaffected"
+            }
+        },
+        {
+            "id": "pa_node_30",
+            "type": "compliance",
+            "label": "Repealed Circulars",
+            "properties": {
+                "paragraph": "19-23",
+                "repealed_circulars": [
+                    "A.P. (DIR Series) Circular No. 17 dated November 16, 2010",
+                    "A.P. (DIR Series) Circular No. 109 dated June 11, 2013",
+                    "A.P. (DIR Series) Circular No.16 dated September 24, 2015",
+                    "DPSS.CO.PD.No.1102/02.14.08/2009-10 dated November 24, 2009",
+                    "Circulars listed in Annexure 3"
+                ],
+                "exceptions": [
+                    "Existing PA-CB that applied for authorisation on or before April 30, 2024 (decision pending)",
+                    "Existing PA-O that sought authorisation (decision pending)"
+                ],
+                "savings": "All authorisations/approvals/actions granted under repealed circulars continue to be valid under this MD"
+            }
+        },
+        {
+            "id": "pa_node_31",
+            "type": "technical_standard",
+            "label": "Baseline Technology Recommendations (Annexure 1)",
+            "properties": {
+                "applicability": "Mandatory for PA, Recommended for PG",
+                "security_requirements": [
+                    "Information Security Governance with risk assessment",
+                    "Data Security Standards (PCI-DSS, PCI-SSF, encryption)",
+                    "Security Incident Reporting to RBI within stipulated timeframe",
+                    "Monthly cyber security incident reports with root cause analysis",
+                    "Merchant onboarding security assessment",
+                    "Quarterly internal and annual external cyber security audits",
+                    "Bi-annual VAPT reports",
+                    "PCI-DSS compliance with AOC and ROC",
+                    "PCI-SSF compliance for payment applications",
+                    "Board approved Information Security Policy reviewed annually",
+                    "IT Steering Committee",
+                    "Enterprise Information Model",
+                    "Cyber Crisis Management Plan",
+                    "Enterprise Data Dictionary",
+                    "Risk assessment per asset",
+                    "Least privilege access to applications",
+                    "Competency assessment and training",
+                    "Vendor Risk Management with SLAs",
+                    "IT maturity assessment and roadmap",
+                    "Cryptographic standards (international standards)",
+                    "Forensic readiness",
+                    "Data sovereignty controls",
+                    "Data security in outsourcing with right to audit"
+                ],
+                "other_recommendations": [
+                    "No storage of customer card credentials in merchant-accessed database/server",
+                    "No ATM PIN for card-not-present transactions",
+                    "Data storage per PSO requirements",
+                    "Refunds to original payment method (unless customer agrees to alternate mode)"
+                ]
+            }
+        }
+    ],
+    "edges": [
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_2",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_2",
+            "target": "pa_node_3",
+            "relationship": "HAS_CATEGORY"
+        },
+        {
+            "source": "pa_node_2",
+            "target": "pa_node_4",
+            "relationship": "HAS_CATEGORY"
+        },
+        {
+            "source": "pa_node_2",
+            "target": "pa_node_5",
+            "relationship": "HAS_CATEGORY"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_6",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_7",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_8",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_9",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_10",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_11",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_12",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_13",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_14",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_15",
+            "relationship": "REFERENCES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_16",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_17",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_18",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_19",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_20",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_21",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_4",
+            "target": "pa_node_22",
+            "relationship": "SUBJECT_TO"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_22",
+            "relationship": "SPECIFIES_FOR"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_23",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_24",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_24",
+            "target": "pa_node_2",
+            "relationship": "OBLIGATES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_25",
+            "relationship": "DEFINES_RESPONSIBILITIES_OF"
+        },
+        {
+            "source": "pa_node_25",
+            "target": "pa_node_2",
+            "relationship": "ENGAGES_WITH"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_26",
+            "relationship": "PERMITS"
+        },
+        {
+            "source": "pa_node_26",
+            "target": "pa_node_24",
+            "relationship": "IMPLEMENTS"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_27",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_27",
+            "target": "pa_node_2",
+            "relationship": "MUST_BE_MAINTAINED_BY"
+        },
+        {
+            "source": "pa_node_27",
+            "target": "pa_node_28",
+            "relationship": "HAS_CORE_PORTION"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_28",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_29",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_29",
+            "target": "pa_node_27",
+            "relationship": "REGULATES"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_30",
+            "relationship": "REPEALS"
+        },
+        {
+            "source": "pa_node_1",
+            "target": "pa_node_31",
+            "relationship": "INCORPORATES"
+        },
+        {
+            "source": "pa_node_31",
+            "target": "pa_node_2",
+            "relationship": "MUST_COMPLY_WITH"
+        },
+        {
+            "source": "pa_node_31",
+            "target": "pa_node_6",
+            "relationship": "RECOMMENDED_FOR"
+        },
+        {
+            "source": "pa_node_20",
+            "target": "pa_node_31",
+            "relationship": "REFERENCES"
+        },
+        {
+            "source": "pa_node_4",
+            "target": "pa_node_12",
+            "relationship": "FACILITATES"
+        },
+        {
+            "source": "pa_node_4",
+            "target": "pa_node_13",
+            "relationship": "FACILITATES"
+        },
+        {
+            "source": "pa_node_4",
+            "target": "pa_node_22",
+            "relationship": "SUBJECT_TO"
+        },
+        {
+            "source": "pa_node_24",
+            "target": "pa_node_8",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "pa_node_27",
+            "target": "pa_node_7",
+            "relationship": "PROHIBITED_FOR"
+        },
+        {
+            "source": "pa_node_21",
+            "target": "pa_node_10",
+            "relationship": "PROHIBITS"
+        },
+        {
+            "source": "pa_node_2",
+            "target": "pa_node_11",
+            "relationship": "SERVES"
+        },
+        {
+            "source": "pa_node_2",
+            "target": "pa_node_10",
+            "relationship": "MAY_SERVE"
+        },
+        {
+            "source": "pa_node_4",
+            "target": "pa_node_11",
+            "relationship": "ONBOARDS"
+        },
+        {
+            "source": "pa_node_22",
+            "target": "pa_node_4",
+            "relationship": "GOVERNED_BY"
+        },
+        {
+            "source": "pa_node_23",
+            "target": "pa_node_2",
+            "relationship": "MUST_SUBMIT_TO"
+        },
+        {
+            "source": "pa_node_27",
+            "target": "pa_node_28",
+            "relationship": "CONTAINS"
+        },
+        {
+            "source": "pa_node_18",
+            "target": "pa_node_2",
+            "relationship": "MANAGEMENT_REQUIREMENTS_FOR"
+        }
+    ],
+    "metadata": {
+        "generated_from": "Regulation of Payment Aggregator (PA)MD.pdf",
+        "extraction_date": "2026-03-05",
+        "node_count": 31,
+        "edge_count": 49,
+        "key_topics": [
+            "Payment Aggregator Regulation",
+            "PA-P (Physical)",
+            "PA-O (Online)",
+            "PA-CB (Cross Border)",
+            "Escrow Accounts",
+            "InCA/OCA",
+            "Merchant Due Diligence",
+            "KYC Requirements",
+            "Cyber Security",
+            "Data Storage",
+            "FEMA Compliance",
+            "Capital Requirements",
+            "Governance",
+            "Dispute Management",
+            "Reporting Requirements"
+        ],
+        "key_thresholds": {
+            "minimum_networth_initial": "₹15 crore",
+            "minimum_networth_target": "₹25 crore",
+            "max_transaction_value_cross_border": "₹25 lakh",
+            "small_merchant_turnover_threshold": "₹40 lakh",
+            "small_merchant_export_threshold": "₹5 lakh"
+        }
+    }
+}

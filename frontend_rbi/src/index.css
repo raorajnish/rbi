@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Carrois+Gothic&family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "tailwindcss";
+
+/* =========================
+   LIGHT THEME (DEFAULT)
+   ========================= */
+:root {
+  /* Brand Colors (from image) */
+  --primary: #1b263b;
+  --primary-light: #415a77;
+  --primary-dark: #0d1b2a;
+
+  --secondary: #778da9;
+  --secondary-light: #9fb1c8;
+  --secondary-dark: #415a77;
+
+  /* Backgrounds & Surfaces */
+  --background: #e0e1dd;
+  --surface: #ffffff;
+  --surface-alt: #f2f3f1;
+
+  /* Text */
+  --text-primary: #0d1b2a;
+  --text-secondary: #415a77;
+  --text-muted: #778da9;
+
+  /* Borders */
+  --border: #d1d5db;
+  --border-light: #e5e7eb;
+
+  /* Accent (optional soft highlight) */
+  --accent: #c9ada7;
+
+  /* Status Colors (UNCHANGED) */
+  --danger: #EF4444;
+  --warning: #F59E0B;
+  --success: #10B981;
+  --info: #3B82F6;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.12);
+
+  /* Fonts */
+  
+  --font-lora: "Lora", serif;
+  --font-gothic: "Carrois Gothic", sans-serif;
+  --font-fira: "Fira Sans Extra Condensed", sans-serif;
+}
+
+/* =========================
+   DARK THEME
+   ========================= */
+:root[data-theme="dark"] {
+  /* Brand Colors */
+  --primary: #0d1b2a;
+  --primary-light: #1b263b;
+  --primary-dark: #0b1622;
+
+  --secondary: #778da9;
+  --secondary-light: #8fa3bd;
+  --secondary-dark: #415a77;
+
+  /* Backgrounds & Surfaces */
+  --background: #0d1b2a;
+  --surface: #1b263b;
+  --surface-alt: #415a77;
+
+  /* Text */
+  --text-primary: #e0e1dd;
+  --text-secondary: #c9ada7;
+  --text-muted: #9aa5b1;
+
+  /* Borders */
+  --border: #415a77;
+  --border-light: #778da9;
+
+  /* Accent */
+  --accent: #c9ada7;
+
+  /* Status Colors (UNCHANGED) */
+  --danger: #EF4444;
+  --warning: #F59E0B;
+  --success: #10B981;
+  --info: #3B82F6;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Shadows (deeper for dark UI) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 10px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 20px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 20px 30px rgba(0, 0, 0, 0.6);
+
+  /* Fonts */
+  
+  --font-lora: "Lora", serif;
+  --font-gothic: "Carrois Gothic", sans-serif;
+  --font-fira: "Fira Sans Extra Condensed", sans-serif;
+}
+
+/* =========================
+   TAILWIND THEME TOKENS
+   ========================= */
+@theme {
+  /* Colors */
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-light: var(--secondary-light);
+  --color-secondary-dark: var(--secondary-dark);
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+
+  --color-accent: var(--accent);
+
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+  --color-info: var(--info);
+
+  /* Radius */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
+  /* Shadows */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+
+  /* Fonts */
+
+  --font-lora: var(--font-lora);
+  --font-gothic: var(--font-gothic);
+  --font-fira: var(--font-fira);
+}

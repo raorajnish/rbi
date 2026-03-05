@@ -1,0 +1,988 @@
+{
+    "document": {
+        "id": "rbi_commercial_banks_kyc_2025",
+        "title": "Reserve Bank of India (Commercial Banks - Know Your Customer) Directions, 2025",
+        "effective_date": "2025-11-28",
+        "last_updated": "2025-12-29",
+        "document_type": "master_direction",
+        "issuing_authority": "Reserve Bank of India",
+        "notification_number": "RBI/DOR/2025-26/169 DOR.AML.REC.No.88/14.01.002/2025-26",
+        "applicable_to": [
+            "Commercial Banks",
+            "Corresponding New Banks",
+            "State Bank of India"
+        ],
+        "legal_framework": [
+            "Banking Regulation Act, 1949 (Section 35A)",
+            "Payment and Settlement Systems Act 2007 (Section 10(2), 18)",
+            "Foreign Exchange Management Act, 1999 (Section 11(1))",
+            "Prevention of Money-Laundering (Maintenance of Records) Rules, 2005 (Rule 9(14))"
+        ]
+    },
+    "nodes": [
+        {
+            "id": "node_1",
+            "type": "regulation",
+            "label": "KYC Directions 2025",
+            "properties": {
+                "chapter": "I",
+                "section": "Preliminary",
+                "paragraph": "1-4",
+                "category": "general"
+            }
+        },
+        {
+            "id": "node_2",
+            "type": "entity",
+            "label": "Commercial Bank",
+            "properties": {
+                "entity_type": "regulated_entity",
+                "definition": "Banking companies, corresponding new banks, State Bank of India (excluding Small Finance Banks, Payment Banks, Local Area Banks)"
+            }
+        },
+        {
+            "id": "node_3",
+            "type": "definition",
+            "label": "Beneficial Owner",
+            "properties": {
+                "paragraph": "5(1)(iv)",
+                "definition": "Natural person with >10% ownership/control in company/partnership, >15% in unincorporated bodies",
+                "threshold_company": "10%",
+                "threshold_partnership": "10%",
+                "threshold_trust": "10%",
+                "threshold_unincorporated": "15%"
+            }
+        },
+        {
+            "id": "node_4",
+            "type": "definition",
+            "label": "Officially Valid Document (OVD)",
+            "properties": {
+                "paragraph": "5(1)(xiv)",
+                "documents": [
+                    "Passport",
+                    "Driving Licence",
+                    "Aadhaar",
+                    "Voter ID",
+                    "NREGA Job Card",
+                    "NPR Letter"
+                ],
+                "alternative_documents": [
+                    "Utility bills (≤2 months)",
+                    "Property tax receipt",
+                    "PPO",
+                    "Employer allotment letter"
+                ]
+            }
+        },
+        {
+            "id": "node_5",
+            "type": "definition",
+            "label": "Small Account",
+            "properties": {
+                "paragraph": "5(1)(xix), 28",
+                "credit_limit_annual": 100000,
+                "withdrawal_limit_monthly": 10000,
+                "balance_limit": 50000,
+                "validity_initial": "12 months",
+                "validity_extended": "12 additional months"
+            }
+        },
+        {
+            "id": "node_6",
+            "type": "requirement",
+            "label": "KYC Policy Components",
+            "properties": {
+                "paragraph": "6",
+                "components": [
+                    "Customer Acceptance Policy",
+                    "Risk Management",
+                    "Customer Identification Procedures",
+                    "Monitoring of Transactions"
+                ]
+            }
+        },
+        {
+            "id": "node_7",
+            "type": "role",
+            "label": "Designated Director",
+            "properties": {
+                "paragraph": "14",
+                "responsibility": "Overall compliance with PML Act obligations",
+                "restriction": "Cannot be Principal Officer",
+                "reporting_to": [
+                    "FIU-IND",
+                    "RBI"
+                ]
+            }
+        },
+        {
+            "id": "node_8",
+            "type": "role",
+            "label": "Principal Officer",
+            "properties": {
+                "paragraph": "15",
+                "responsibility": "Compliance monitoring, transaction monitoring, reporting",
+                "reporting_to": [
+                    "FIU-IND",
+                    "RBI"
+                ]
+            }
+        },
+        {
+            "id": "node_9",
+            "type": "requirement",
+            "label": "Customer Acceptance Policy",
+            "properties": {
+                "paragraph": "16-19",
+                "prohibitions": [
+                    "Anonymous accounts",
+                    "Fictitious/benami names",
+                    "Accounts without CDD"
+                ],
+                "verification_requirements": [
+                    "PAN verification",
+                    "Digital signature verification",
+                    "GST verification"
+                ]
+            }
+        },
+        {
+            "id": "node_10",
+            "type": "process",
+            "label": "Risk Categorization",
+            "properties": {
+                "paragraph": "20",
+                "categories": [
+                    "Low",
+                    "Medium",
+                    "High"
+                ],
+                "parameters": [
+                    "Identity",
+                    "Social/financial status",
+                    "Business nature",
+                    "Location",
+                    "Products",
+                    "Delivery channels"
+                ],
+                "confidentiality": "Must not reveal categorization to customer"
+            }
+        },
+        {
+            "id": "node_11",
+            "type": "process",
+            "label": "Customer Identification Procedure",
+            "properties": {
+                "paragraph": "21-22",
+                "trigger_transactions": [
+                    "Account-based relationship commencement",
+                    "International money transfer (non-account holder)",
+                    "Doubt about existing data",
+                    "Third-party products >₹50,000",
+                    "Walk-in transactions ≥₹50,000",
+                    "Structured transactions below ₹50,000"
+                ]
+            }
+        },
+        {
+            "id": "node_12",
+            "type": "document",
+            "label": "KYC Documents - Individual",
+            "properties": {
+                "paragraph": "23",
+                "required": [
+                    "Aadhaar (optional/benefit-linked)",
+                    "PAN or Form 60"
+                ],
+                "optional": [
+                    "Nature of business proof",
+                    "Financial status proof"
+                ]
+            }
+        },
+        {
+            "id": "node_13",
+            "type": "process",
+            "label": "Digital KYC",
+            "properties": {
+                "paragraph": "24",
+                "requirements": [
+                    "Authenticated application",
+                    "Live photograph with watermark (GPS, officer details, timestamp)",
+                    "White background",
+                    "OTP validation from customer's mobile",
+                    "Digital signature by authorized officer"
+                ]
+            }
+        },
+        {
+            "id": "node_14",
+            "type": "process",
+            "label": "Aadhaar OTP based e-KYC",
+            "properties": {
+                "paragraph": "25",
+                "restrictions": [
+                    "Balance ≤ ₹1,00,000",
+                    "Annual credits ≤ ₹2,00,000",
+                    "Term loans ≤ ₹60,000/year",
+                    "Account validity: 1 year unless full KYC completed",
+                    "Declaration required: No other OTP-based accounts"
+                ]
+            }
+        },
+        {
+            "id": "node_15",
+            "type": "process",
+            "label": "Video Based Customer Identification (V-CIP)",
+            "properties": {
+                "paragraph": "26-27",
+                "use_cases": [
+                    "New customer onboarding",
+                    "Conversion of OTP-based accounts",
+                    "KYC updation"
+                ],
+                "requirements": [
+                    "End-to-end encryption",
+                    "Geo-tagging",
+                    "Face liveness detection",
+                    "GPS coordinates capture",
+                    "Indian IP addresses only",
+                    "Data storage in India"
+                ],
+                "identification_methods": [
+                    "Aadhaar OTP e-KYC",
+                    "Aadhaar offline verification",
+                    "CKYCR records",
+                    "DigiLocker documents"
+                ]
+            }
+        },
+        {
+            "id": "node_16",
+            "type": "document",
+            "label": "Sole Proprietorship KYC Documents",
+            "properties": {
+                "paragraph": "30-32",
+                "business_proof_options": [
+                    "Udyam Registration Certificate",
+                    "Shop and Establishment Certificate",
+                    "Sales/Income Tax Returns",
+                    "GST Certificate",
+                    "IEC Code",
+                    "Complete Income Tax Return",
+                    "Utility bills"
+                ],
+                "minimum_documents": "Any two (or one with contact point verification)"
+            }
+        },
+        {
+            "id": "node_17",
+            "type": "document",
+            "label": "Company KYC Documents",
+            "properties": {
+                "paragraph": "33",
+                "documents": [
+                    "Certificate of Incorporation",
+                    "Memorandum and Articles of Association",
+                    "PAN",
+                    "Board Resolution",
+                    "Power of Attorney",
+                    "Beneficial Owner documents",
+                    "Registered office address proof"
+                ]
+            }
+        },
+        {
+            "id": "node_18",
+            "type": "document",
+            "label": "Partnership Firm KYC Documents",
+            "properties": {
+                "paragraph": "34",
+                "documents": [
+                    "Registration Certificate",
+                    "Partnership Deed",
+                    "PAN",
+                    "Beneficial Owner documents",
+                    "List of partners",
+                    "Address proof"
+                ]
+            }
+        },
+        {
+            "id": "node_19",
+            "type": "document",
+            "label": "Trust KYC Documents",
+            "properties": {
+                "paragraph": "35",
+                "documents": [
+                    "Registration Certificate",
+                    "Trust Deed",
+                    "PAN or Form 60",
+                    "Beneficial Owner documents",
+                    "Names of beneficiaries, trustees, settlor, protector, authors",
+                    "Address proof",
+                    "List of trustees"
+                ]
+            }
+        },
+        {
+            "id": "node_20",
+            "type": "process",
+            "label": "Ongoing Due Diligence",
+            "properties": {
+                "paragraph": "39-41",
+                "monitoring_focus": [
+                    "Large/complex transactions",
+                    "Threshold-exceeding transactions",
+                    "High turnover vs balance",
+                    "Third-party deposits with cash withdrawals"
+                ],
+                "risk_review_period": "Every 6 months"
+            }
+        },
+        {
+            "id": "node_21",
+            "type": "process",
+            "label": "Periodic KYC Updation",
+            "properties": {
+                "paragraph": "42",
+                "frequency": {
+                    "high_risk": "2 years",
+                    "medium_risk": "8 years",
+                    "low_risk": "10 years"
+                },
+                "no_change_process": "Self-declaration via registered email/mobile/ATM/digital channels",
+                "address_change_process": "Self-declaration + positive confirmation within 2 months",
+                "advance_notices": "Minimum 3 intimations (1 by letter)",
+                "reminders": "Minimum 3 reminders (1 by letter)"
+            }
+        },
+        {
+            "id": "node_22",
+            "type": "requirement",
+            "label": "PAN Requirement",
+            "properties": {
+                "paragraph": "43",
+                "consequence_non_compliance": "Temporary cessation of operations",
+                "due_process": "Accessible notice + reasonable opportunity to be heard",
+                "exceptions": "Injury, illness, old age (with enhanced monitoring)"
+            }
+        },
+        {
+            "id": "node_23",
+            "type": "process",
+            "label": "Enhanced Due Diligence - Non-face-to-face",
+            "properties": {
+                "paragraph": "44",
+                "measures": [
+                    "V-CIP as first option",
+                    "No alternate mobile numbers",
+                    "Address verification through positive confirmation",
+                    "PAN verification",
+                    "First transaction from KYC-compliant account",
+                    "High-risk categorization"
+                ]
+            }
+        },
+        {
+            "id": "node_24",
+            "type": "entity",
+            "label": "Politically Exposed Person (PEP)",
+            "properties": {
+                "paragraph": "45",
+                "definition": "Individuals entrusted with prominent public functions by foreign country",
+                "examples": [
+                    "Heads of State",
+                    "Senior politicians",
+                    "Senior government officials",
+                    "Senior judicial officers",
+                    "Senior military officers",
+                    "Senior executives of state-owned corporations",
+                    "Important political party officials"
+                ],
+                "includes": "Family members and close associates",
+                "requirements": [
+                    "Senior management approval",
+                    "Source of funds/wealth verification",
+                    "Enhanced ongoing monitoring"
+                ]
+            }
+        },
+        {
+            "id": "node_25",
+            "type": "entity",
+            "label": "Self Help Group (SHG)",
+            "properties": {
+                "paragraph": "47",
+                "simplified_norms": "CDD of office bearers only sufficient for account opening",
+                "full_cdd_timing": "At credit linking"
+            }
+        },
+        {
+            "id": "node_26",
+            "type": "entity",
+            "label": "Foreign Student",
+            "properties": {
+                "paragraph": "48",
+                "account_type": "NRO Account",
+                "documents": [
+                    "Passport with visa/immigration",
+                    "Admission letter",
+                    "Photograph"
+                ],
+                "local_address_deadline": "30 days",
+                "temporary_limits": {
+                    "incoming_remittances": "USD 1,000",
+                    "withdrawal_limit": "₹50,000",
+                    "period": "30 days"
+                },
+                "special_case": "Pakistani students require RBI approval"
+            }
+        },
+        {
+            "id": "node_27",
+            "type": "entity",
+            "label": "Foreign Portfolio Investor (FPI)",
+            "properties": {
+                "paragraph": "49",
+                "categories": [
+                    "Category I",
+                    "Category II",
+                    "Category III"
+                ],
+                "simplified_documentation": "Undertaking-based for certain documents"
+            }
+        },
+        {
+            "id": "node_28",
+            "type": "requirement",
+            "label": "Record Management",
+            "properties": {
+                "paragraph": "50",
+                "transaction_record_retention": "5 years from transaction date",
+                "identification_record_retention": "5 years after relationship ends",
+                "required_transaction_details": [
+                    "Nature",
+                    "Amount",
+                    "Currency",
+                    "Date",
+                    "Parties"
+                ]
+            }
+        },
+        {
+            "id": "node_29",
+            "type": "entity",
+            "label": "Non-Profit Organization (NPO)",
+            "properties": {
+                "paragraph": "51",
+                "definition": "Entities under Section 2(15) of Income Tax Act, 1961 registered as trust/society/Section 8 company",
+                "requirement": "Register on DARPAN Portal",
+                "record_retention": "5 years after relationship ends"
+            }
+        },
+        {
+            "id": "node_30",
+            "type": "requirement",
+            "label": "Reporting to FIU-IND",
+            "properties": {
+                "paragraph": "52-55",
+                "report_types": [
+                    "CTR",
+                    "STR"
+                ],
+                "confidentiality": "Must maintain confidentiality of reporting",
+                "software_requirement": "Robust alert generation system"
+            }
+        },
+        {
+            "id": "node_31",
+            "type": "compliance",
+            "label": "UAPA Section 51A Obligations",
+            "properties": {
+                "paragraph": "56",
+                "applicable_lists": [
+                    "UNSC 1267/1989/2253 (Al-Qaida)",
+                    "UNSC 1988 (Taliban)",
+                    "Prevention and Suppression of Terrorism Order, 2007 Schedules"
+                ],
+                "check_frequency": "Daily",
+                "reporting_to": [
+                    "FIU-IND",
+                    "Ministry of Home Affairs"
+                ],
+                "freezing_procedure": "As per Annex I Order dated Feb 2, 2021"
+            }
+        },
+        {
+            "id": "node_32",
+            "type": "compliance",
+            "label": "WMD Act Section 12A Obligations",
+            "properties": {
+                "paragraph": "57",
+                "applicable_list": "UNSCR 1718 Sanctions List (DPRK)",
+                "check_points": [
+                    "Account opening",
+                    "Periodic basis"
+                ],
+                "reporting_to": [
+                    "Central Nodal Officer (FIU-IND Director)",
+                    "State Nodal Officer",
+                    "RBI"
+                ],
+                "freezing_procedure": "As per Annex II Order dated Sept 1, 2023"
+            }
+        },
+        {
+            "id": "node_33",
+            "type": "compliance",
+            "label": "FATF Recommendation Implementation",
+            "properties": {
+                "paragraph": "61",
+                "requirements": [
+                    "Consider FATF statements",
+                    "Apply EDD to high-risk jurisdictions",
+                    "Document transactions with high-risk countries",
+                    "Retain findings for authorities"
+                ]
+            }
+        },
+        {
+            "id": "node_34",
+            "type": "system",
+            "label": "Central KYC Records Registry (CKYCR)",
+            "properties": {
+                "paragraph": "65",
+                "operator": "CERSAI",
+                "upload_deadline": "10 days from account commencement",
+                "applicable_accounts_individuals": "From Jan 1, 2017",
+                "applicable_accounts_legal_entities": "From April 1, 2021",
+                "kyc_identifier": "Must be provided to customer",
+                "downloading_procedure": "Use KYC Identifier, no re-verification needed if current"
+            }
+        },
+        {
+            "id": "node_35",
+            "type": "compliance",
+            "label": "FATCA/CRS Compliance",
+            "properties": {
+                "paragraph": "66",
+                "legal_framework": "Income Tax Rules 114F, 114G, 114H",
+                "requirements": [
+                    "Register on Income Tax e-filing portal",
+                    "Submit Form 61B or NIL report",
+                    "Develop IT framework for due diligence",
+                    "Constitute High-Level Monitoring Committee",
+                    "Audit system"
+                ]
+            }
+        },
+        {
+            "id": "node_36",
+            "type": "entity",
+            "label": "Money Mule",
+            "properties": {
+                "paragraph": "68",
+                "definition": "Accounts used to launder proceeds of fraud schemes",
+                "bank_obligation": "Identify, monitor, report STR",
+                "consequence_of_non_reporting": "Deemed non-compliance"
+            }
+        },
+        {
+            "id": "node_37",
+            "type": "process",
+            "label": "Wire Transfer Requirements",
+            "properties": {
+                "paragraph": "74",
+                "required_fields": [
+                    "Originator name",
+                    "Originator account number",
+                    "Originator address/national ID/DOB",
+                    "Beneficiary name",
+                    "Beneficiary account number"
+                ],
+                "batch_transfer_exception": "Originator account/ref number sufficient if batch has full info",
+                "domestic_threshold": "₹50,000 (full info required)",
+                "ordering_bank_responsibility": "Ensure complete and accurate information",
+                "intermediary_bank_responsibility": "Retain information, identify missing info",
+                "beneficiary_bank_responsibility": "Identify missing info, have risk-based policies"
+            }
+        },
+        {
+            "id": "node_38",
+            "type": "requirement",
+            "label": "Demand Draft Issuance",
+            "properties": {
+                "paragraph": "75",
+                "threshold": "₹50,000 and above",
+                "payment_mode": "Debit to account or against cheque (not cash)",
+                "requirement": "Purchaser's name on face of instrument"
+            }
+        },
+        {
+            "id": "node_39",
+            "type": "requirement",
+            "label": "Third Party Product Sales",
+            "properties": {
+                "paragraph": "77",
+                "threshold": "₹50,000 and above",
+                "requirements": [
+                    "Customer identification",
+                    "Record maintenance",
+                    "AML software for alerts",
+                    "Debit to account/cheque payment",
+                    "PAN verification"
+                ]
+            }
+        },
+        {
+            "id": "node_40",
+            "type": "requirement",
+            "label": "Employee Screening and Training",
+            "properties": {
+                "paragraph": "79",
+                "screening": "Know Your Employee/Staff policy",
+                "training_focus_areas": [
+                    "Frontline staff",
+                    "Compliance staff",
+                    "New customer handling staff"
+                ],
+                "audit_staff": "Must be adequately trained in KYC/AML/CFT"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "source": "node_1",
+            "target": "node_2",
+            "relationship": "APPLIES_TO"
+        },
+        {
+            "source": "node_1",
+            "target": "node_3",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_4",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_5",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_6",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_7",
+            "relationship": "ESTABLISHES_ROLE"
+        },
+        {
+            "source": "node_1",
+            "target": "node_8",
+            "relationship": "ESTABLISHES_ROLE"
+        },
+        {
+            "source": "node_1",
+            "target": "node_9",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_10",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_11",
+            "relationship": "MANDATES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_12",
+            "relationship": "SPECIFIES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_13",
+            "relationship": "AUTHORIZES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_14",
+            "relationship": "AUTHORIZES_WITH_RESTRICTIONS"
+        },
+        {
+            "source": "node_1",
+            "target": "node_15",
+            "relationship": "AUTHORIZES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_16",
+            "relationship": "SPECIFIES_FOR"
+        },
+        {
+            "source": "node_16",
+            "target": "node_2",
+            "relationship": "APPLIES_TO_ENTITY_TYPE"
+        },
+        {
+            "source": "node_1",
+            "target": "node_17",
+            "relationship": "SPECIFIES_FOR"
+        },
+        {
+            "source": "node_17",
+            "target": "node_2",
+            "relationship": "APPLIES_TO_ENTITY_TYPE"
+        },
+        {
+            "source": "node_1",
+            "target": "node_18",
+            "relationship": "SPECIFIES_FOR"
+        },
+        {
+            "source": "node_18",
+            "target": "node_2",
+            "relationship": "APPLIES_TO_ENTITY_TYPE"
+        },
+        {
+            "source": "node_1",
+            "target": "node_19",
+            "relationship": "SPECIFIES_FOR"
+        },
+        {
+            "source": "node_19",
+            "target": "node_2",
+            "relationship": "APPLIES_TO_ENTITY_TYPE"
+        },
+        {
+            "source": "node_1",
+            "target": "node_20",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_21",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_22",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_23",
+            "relationship": "REQUIRES_FOR"
+        },
+        {
+            "source": "node_23",
+            "target": "node_11",
+            "relationship": "ENHANCES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_24",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_25",
+            "relationship": "PROVIDES_SIMPLIFIED_NORMS_FOR"
+        },
+        {
+            "source": "node_1",
+            "target": "node_26",
+            "relationship": "PROVIDES_PROCEDURE_FOR"
+        },
+        {
+            "source": "node_1",
+            "target": "node_27",
+            "relationship": "PROVIDES_SIMPLIFIED_NORMS_FOR"
+        },
+        {
+            "source": "node_1",
+            "target": "node_28",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_29",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_30",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_31",
+            "relationship": "INCORPORATES_BY_REFERENCE"
+        },
+        {
+            "source": "node_31",
+            "target": "node_2",
+            "relationship": "OBLIGATES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_32",
+            "relationship": "INCORPORATES_BY_REFERENCE"
+        },
+        {
+            "source": "node_32",
+            "target": "node_2",
+            "relationship": "OBLIGATES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_33",
+            "relationship": "REQUIRES_COMPLIANCE_WITH"
+        },
+        {
+            "source": "node_1",
+            "target": "node_34",
+            "relationship": "ESTABLISHES"
+        },
+        {
+            "source": "node_34",
+            "target": "node_2",
+            "relationship": "SERVES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_35",
+            "relationship": "REQUIRES_COMPLIANCE_WITH"
+        },
+        {
+            "source": "node_1",
+            "target": "node_36",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "node_36",
+            "target": "node_2",
+            "relationship": "MUST_BE_IDENTIFIED_BY"
+        },
+        {
+            "source": "node_1",
+            "target": "node_37",
+            "relationship": "REGULATES"
+        },
+        {
+            "source": "node_37",
+            "target": "node_2",
+            "relationship": "OBLIGATES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_38",
+            "relationship": "REGULATES"
+        },
+        {
+            "source": "node_38",
+            "target": "node_2",
+            "relationship": "OBLIGATES"
+        },
+        {
+            "source": "node_1",
+            "target": "node_39",
+            "relationship": "REGULATES"
+        },
+        {
+            "source": "node_39",
+            "target": "node_2",
+            "relationship": "OBLIGATES_WHEN_ACTING_AS_AGENT"
+        },
+        {
+            "source": "node_1",
+            "target": "node_40",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "node_40",
+            "target": "node_2",
+            "relationship": "OBLIGATES"
+        },
+        {
+            "source": "node_3",
+            "target": "node_2",
+            "relationship": "MUST_BE_IDENTIFIED_FOR"
+        },
+        {
+            "source": "node_4",
+            "target": "node_12",
+            "relationship": "IS_ACCEPTED_AS"
+        },
+        {
+            "source": "node_5",
+            "target": "node_2",
+            "relationship": "MAY_BE_OFFERED_BY"
+        },
+        {
+            "source": "node_7",
+            "target": "node_8",
+            "relationship": "CANNOT_BE_SAME_AS"
+        },
+        {
+            "source": "node_10",
+            "target": "node_21",
+            "relationship": "DETERMINES_FREQUENCY_OF"
+        },
+        {
+            "source": "node_14",
+            "target": "node_15",
+            "relationship": "CAN_BE_CONVERTED_VIA"
+        },
+        {
+            "source": "node_28",
+            "target": "node_30",
+            "relationship": "SUPPORTS"
+        },
+        {
+            "source": "node_34",
+            "target": "node_12",
+            "relationship": "STORES"
+        },
+        {
+            "source": "node_34",
+            "target": "node_17",
+            "relationship": "STORES"
+        },
+        {
+            "source": "node_34",
+            "target": "node_18",
+            "relationship": "STORES"
+        },
+        {
+            "source": "node_34",
+            "target": "node_19",
+            "relationship": "STORES"
+        }
+    ],
+    "metadata": {
+        "generated_from": "CommercialBanksKYCMD.pdf",
+        "extraction_date": "2026-03-05",
+        "node_count": 40,
+        "edge_count": 58,
+        "key_topics": [
+            "KYC",
+            "AML",
+            "CFT",
+            "Customer Due Diligence",
+            "Beneficial Owner",
+            "Risk Management",
+            "Reporting Requirements",
+            "International Obligations"
+        ]
+    }
+}

@@ -1,0 +1,134 @@
+The four documents visible are:
+
+Basel III Capital Regulations
+
+Regulation of Payment Aggregators
+
+NBFC KYC Master Direction
+
+Commercial Banks KYC Master Direction
+
+These map nicely to 3 institution types + 4 regulatory domains.
+
+1️⃣ Updated MVP Scope (Based on Your PDFs)
+
+Your platform will support 3 organization types and 4 regulation sources.
+
+Organization Types
+1️⃣ NBFC
+2️⃣ Payment Aggregator
+3️⃣ Commercial Bank
+Regulations Your AI Will Use
+NBFC → NBFC KYC Master Direction
+Payment Aggregator → Regulation of Payment Aggregator
+Commercial Bank → Commercial Banks KYC Direction
+Commercial Bank → Basel III Capital Regulations
+
+So your AI system will answer questions like:
+
+"What compliance rules apply to my organization?"
+
+2️⃣ Registration Flow (Frontend + Backend Logic)
+
+When the user registers, your system must create a compliance profile.
+
+Step 1 — Organization Registration
+
+Form fields:
+
+Company Name
+Organization Type
+CIN Number
+GSTIN
+Head Office Location
+Username
+Email
+Password
+Confirm Password
+
+Organization type dropdown:
+
+NBFC
+Payment Aggregator
+Commercial Bank
+Backend Data Model (FastAPI)
+class Organization(BaseModel):
+    company_name: str
+    organization_type: str
+    cin: str
+    gstin: str
+    head_office: str
+    username: str
+    email: str
+    password: str
+Step 2 — Regulatory Scope
+
+After registration, redirect user to:
+
+/setup-regulations
+
+Ask:
+
+Services Offered
+☑ Lending
+☑ Digital Payments
+☑ Wallet Services
+☑ Merchant Payments
+☑ Cross Border Payments
+Backend Model
+class BusinessProfile(BaseModel):
+    organization_id: str
+    services: list[str]
+Step 3 — Compliance Setup
+
+Ask what compliance domains apply.
+
+☑ KYC
+☑ AML
+☑ Data Localization
+☑ Risk Management
+☑ Lending Transparency
+☑ Capital Adequacy
+Backend Model
+class ComplianceProfile(BaseModel):
+    organization_id: str
+    compliance_domains: list[str]
+Step 4 — Tech Setup
+
+Ask:
+
+Data Storage
+☑ India
+☑ Outside India
+KYC Method
+☑ Aadhaar eKYC
+☑ Video KYC
+☑ Offline KYC
+Backend Model
+class TechSetup(BaseModel):
+    organization_id: str
+    data_storage: str
+    kyc_method: str
+3️⃣ Compliance Mapping Logic
+
+Now your backend decides which regulations apply.
+
+Example logic:
+
+def map_regulations(org_type):
+
+    if org_type == "NBFC":
+        return [
+            "NBFC KYC Master Direction"
+        ]
+
+    elif org_type == "Payment Aggregator":
+        return [
+            "Regulation of Payment Aggregator"
+        ]
+
+    elif org_type == "Commercial Bank":
+        return [
+            "Commercial Banks KYC Direction",
+            "Basel III Capital Regulations"
+        ]

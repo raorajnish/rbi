@@ -1,0 +1,1145 @@
+{
+    "document": {
+        "id": "rbi_basel_iii_capital_regulations_2025",
+        "title": "Master Circular - Basel III Capital Regulations",
+        "effective_date": "2025-04-01",
+        "document_type": "master_circular",
+        "issuing_authority": "Reserve Bank of India",
+        "notification_number": "RBI/2025-26/08 DOR.CAP.REC.2/21.06.201/2025-26",
+        "applicable_to": [
+            "All Scheduled Commercial Banks",
+            "Excluding Small Finance Banks",
+            "Excluding Payments Banks",
+            "Excluding Regional Rural Banks"
+        ],
+        "legal_framework": [
+            "Basel III framework of Basel Committee on Banking Supervision",
+            "Banking Regulation Act, 1949"
+        ]
+    },
+    "nodes": [
+        {
+            "id": "basel_node_1",
+            "type": "regulation",
+            "label": "Basel III Capital Regulations Framework",
+            "properties": {
+                "section": "1",
+                "title": "Introduction",
+                "effective_date": "2013-04-01",
+                "full_implementation_date": "2021-10-01",
+                "three_pillars": [
+                    "Minimum Capital Requirements",
+                    "Supervisory Review Process",
+                    "Market Discipline"
+                ],
+                "objectives": [
+                    "Raise quality and level of capital",
+                    "Increase risk coverage",
+                    "Introduce leverage ratio as backstop",
+                    "Raise standards for supervisory review",
+                    "Enhance public disclosures"
+                ]
+            }
+        },
+        {
+            "id": "basel_node_2",
+            "type": "requirement",
+            "label": "Minimum Capital Ratios",
+            "properties": {
+                "section": "4.2.2",
+                "common_equity_tier_1_minimum": "5.5%",
+                "tier_1_minimum": "7.0%",
+                "total_capital_minimum": "9.0%",
+                "additional_tier_1_maximum": "1.5%",
+                "tier_2_maximum_after_minimum": "2.0%"
+            }
+        },
+        {
+            "id": "basel_node_3",
+            "type": "buffer",
+            "label": "Capital Conservation Buffer (CCB)",
+            "properties": {
+                "section": "15",
+                "requirement": "2.5% of RWA",
+                "composition": "Common Equity Tier 1 only",
+                "purpose": "Build up capital during normal times for use during stress",
+                "distribution_constraints_table": {
+                    "5.5%_to_6.125%": "100% conservation",
+                    "6.125%_to_6.75%": "80% conservation",
+                    "6.75%_to_7.375%": "60% conservation",
+                    "7.375%_to_8.0%": "40% conservation",
+                    "above_8.0%": "0% conservation"
+                }
+            }
+        },
+        {
+            "id": "basel_node_4",
+            "type": "buffer",
+            "label": "Countercyclical Capital Buffer (CCCB)",
+            "properties": {
+                "section": "17",
+                "range": "0% to 2.5%",
+                "composition": "Common Equity Tier 1 only",
+                "main_indicator": "Credit-to-GDP gap",
+                "lower_threshold": "3 percentage points",
+                "upper_threshold": "15 percentage points",
+                "supplementary_indicators": [
+                    "GNPA growth",
+                    "Incremental C-D ratio",
+                    "Industry Outlook index",
+                    "Interest Coverage Ratio"
+                ],
+                "lead_time": "4 quarters normally"
+            }
+        },
+        {
+            "id": "basel_node_5",
+            "type": "ratio",
+            "label": "Leverage Ratio",
+            "properties": {
+                "section": "16",
+                "definition": "Tier 1 Capital / Exposure Measure",
+                "minimum_domestic_sibs": "4.0%",
+                "minimum_other_banks": "3.5%",
+                "purpose": "Non-risk based backstop to constrain leverage",
+                "exposure_components": [
+                    "On-balance sheet exposures",
+                    "Derivative exposures",
+                    "SFT exposures",
+                    "Off-balance sheet items"
+                ]
+            }
+        },
+        {
+            "id": "basel_node_6",
+            "type": "definition",
+            "label": "Tier 1 Capital (Going-concern capital)",
+            "properties": {
+                "section": "4.2.1",
+                "components": [
+                    "Common Equity Tier 1",
+                    "Additional Tier 1"
+                ],
+                "loss_absorbency": "Going concern basis"
+            }
+        },
+        {
+            "id": "basel_node_7",
+            "type": "definition",
+            "label": "Common Equity Tier 1 (CET1) - Indian Banks",
+            "properties": {
+                "section": "4.2.3.1",
+                "elements": [
+                    "Paid-up equity capital",
+                    "Share premium",
+                    "Statutory reserves",
+                    "Capital reserves",
+                    "Revaluation reserves (55% discount)",
+                    "Foreign currency translation reserve (25% discount)",
+                    "Other disclosed free reserves",
+                    "Balance in P&L account",
+                    "Capital reserves from sale of assets",
+                    "Less: Regulatory adjustments/deductions"
+                ],
+                "criteria_reference": "Annex 1"
+            }
+        },
+        {
+            "id": "basel_node_8",
+            "type": "definition",
+            "label": "Common Equity Tier 1 (CET1) - Foreign Banks",
+            "properties": {
+                "section": "4.2.3.2",
+                "elements": [
+                    "Interest-free funds from HO for acquisition of property (non-repatriable)",
+                    "Capital reserve from sale of assets in India (non-repatriable)",
+                    "Revaluation reserves (55% discount)",
+                    "Foreign currency translation reserve (25% discount)",
+                    "Remittable surplus retained in India",
+                    "Less: Regulatory adjustments/deductions"
+                ],
+                "head_office_debit_treatment": "Net placements >10% of minimum CRAR deducted from Tier 1"
+            }
+        },
+        {
+            "id": "basel_node_9",
+            "type": "definition",
+            "label": "Additional Tier 1 Capital - Indian Banks",
+            "properties": {
+                "section": "4.2.4.1",
+                "elements": [
+                    "Perpetual Non-Cumulative Preference Shares (PNCPS)",
+                    "Share premium from AT1 instruments",
+                    "Perpetual Debt Instruments (PDI)",
+                    "AT1 instruments issued by subsidiaries held by third parties",
+                    "Less: Regulatory adjustments"
+                ],
+                "criteria_reference": "Annex 3 (PNCPS), Annex 4 (PDI)"
+            }
+        },
+        {
+            "id": "basel_node_10",
+            "type": "definition",
+            "label": "Tier 2 Capital (Gone-concern capital)",
+            "properties": {
+                "section": "4.2.5",
+                "elements": [
+                    "General Provisions and Loss Reserves (max 1.25% of credit RWA)",
+                    "Investment Fluctuation Reserve (no ceiling)",
+                    "Debt Capital Instruments",
+                    "Preference Share Capital (PCPS/RNCPS/RCPS)",
+                    "Share premium from Tier 2 instruments",
+                    "Tier 2 instruments issued by subsidiaries held by third parties",
+                    "Less: Regulatory adjustments"
+                ],
+                "criteria_reference": "Annex 5 (Debt Instruments), Annex 6 (PCPS/RNCPS/RCPS)"
+            }
+        },
+        {
+            "id": "basel_node_11",
+            "type": "deduction",
+            "label": "Regulatory Adjustments/Deductions from CET1",
+            "properties": {
+                "section": "4.4",
+                "items": [
+                    "Goodwill and all other intangible assets",
+                    "Deferred Tax Assets (DTAs) associated with accumulated losses",
+                    "DTAs from timing differences (subject to 10%/15% thresholds)",
+                    "Cash flow hedge reserve",
+                    "Shortfall of provisions to expected losses",
+                    "Gain-on-sale from securitisation",
+                    "Unrealised gains/losses from changes in own credit risk",
+                    "Defined benefit pension fund assets",
+                    "Investments in own shares (direct/indirect)",
+                    "Reciprocal cross-holdings",
+                    "Investments in capital of financial entities (subject to thresholds)"
+                ]
+            }
+        },
+        {
+            "id": "basel_node_12",
+            "type": "threshold",
+            "label": "10% and 15% Thresholds for Limited Recognition",
+            "properties": {
+                "section": "4.4.2, 4.4.9",
+                "ten_percent_items": [
+                    "DTAs from timing differences (max 10% of CET1)",
+                    "Significant investments in common shares of financial entities (max 10% of CET1)"
+                ],
+                "fifteen_percent_combined": "Sum of above items cannot exceed 15% of CET1",
+                "excess_treatment": "Full deduction from CET1",
+                "remaining_treatment": "Risk-weighted at 250%"
+            }
+        },
+        {
+            "id": "basel_node_13",
+            "type": "definition",
+            "label": "Minority Interest Recognition",
+            "properties": {
+                "section": "4.3",
+                "recognition_condition": "Only if instrument meets criteria and subsidiary is bank",
+                "calculation_method": "Total minority interest minus surplus capital attributable to minority shareholders",
+                "surplus_calculation": "Actual capital minus minimum requirement + CCB",
+                "illustration_reference": "Annex 16"
+            }
+        },
+        {
+            "id": "basel_node_14",
+            "type": "risk_weight",
+            "label": "Claims on Domestic Sovereigns",
+            "properties": {
+                "section": "5.2",
+                "central_government": "0%",
+                "state_government": "0%",
+                "central_government_guaranteed": "0%",
+                "state_government_guaranteed": "20%",
+                "claims_on_RBI_DICGC_CGTMSE_CRGFTLIH": "0% (with conditions)",
+                "claims_on_ECGC": "20%",
+                "npa_treatment": "Risk weights as per NPA classification"
+            }
+        },
+        {
+            "id": "basel_node_15",
+            "type": "risk_weight",
+            "label": "Claims on Foreign Sovereigns and Central Banks",
+            "properties": {
+                "section": "5.3",
+                "mapping": {
+                    "AAA_to_AA": "0%",
+                    "A_to_BBB": "20%",
+                    "BB_to_B": "50%",
+                    "Below_B": "100%",
+                    "Unrated": "150%"
+                },
+                "local_currency_exception": "0% if denominated in domestic currency of jurisdiction and funded in same currency"
+            }
+        },
+        {
+            "id": "basel_node_16",
+            "type": "risk_weight",
+            "label": "Claims on Public Sector Entities (PSEs)",
+            "properties": {
+                "section": "5.4",
+                "domestic": "Same as corporates",
+                "foreign_mapping": {
+                    "AAA_to_AA": "20%",
+                    "A_to_BBB": "50%",
+                    "BB_to_B": "100%",
+                    "Below_BB": "150%",
+                    "Unrated": "100%"
+                }
+            }
+        },
+        {
+            "id": "basel_node_17",
+            "type": "risk_weight",
+            "label": "Claims on Multilateral Development Banks",
+            "properties": {
+                "section": "5.5",
+                "eligible_mdbs": [
+                    "World Bank Group (IBRD, IFC)",
+                    "Asian Development Bank",
+                    "African Development Bank",
+                    "European Bank for Reconstruction and Development",
+                    "Inter-American Development Bank",
+                    "European Investment Bank",
+                    "European Investment Fund",
+                    "Nordic Investment Bank",
+                    "Caribbean Development Bank",
+                    "Islamic Development Bank",
+                    "Council of Europe Development Bank",
+                    "International Finance Facility for Immunization (IFFIm)",
+                    "Asian Infrastructure Investment Bank (AIIB)"
+                ],
+                "risk_weight": "20%"
+            }
+        },
+        {
+            "id": "basel_node_18",
+            "type": "risk_weight",
+            "label": "Claims on Banks - Risk Weights",
+            "properties": {
+                "section": "5.6",
+                "table_3_reference": true,
+                "key_determinants": [
+                    "Type of bank (scheduled/non-scheduled)",
+                    "Investment type (≤10% holdings, >10% holdings)",
+                    "CET1 level of investee bank"
+                ],
+                "foreign_banks_table_4": {
+                    "AAA_to_AA": "20%",
+                    "A_to_BBB": "50%",
+                    "BB_to_B": "100%",
+                    "Below_B": "150%",
+                    "Unrated": "50%"
+                },
+                "domestic_currency_exception": "20% if denominated in domestic foreign currency and funded in same currency"
+            }
+        },
+        {
+            "id": "basel_node_19",
+            "type": "risk_weight",
+            "label": "Claims on Corporates and NBFCs",
+            "properties": {
+                "section": "5.8",
+                "long_term_mapping": {
+                    "AAA": "20%",
+                    "AA": "30%",
+                    "A": "50%",
+                    "BBB": "100%",
+                    "BB_and_below": "150%",
+                    "Unrated": "100% (150% if exposure >₹200 crore)"
+                },
+                "short_term_mapping": {
+                    "A1+": "20%",
+                    "A1": "30%",
+                    "A2": "50%",
+                    "A3": "100%",
+                    "A4_and_D": "150%",
+                    "Unrated": "100%"
+                },
+                "nbfc_exclusion": "Core Investment Companies (CICs) at 100%",
+                "previously_rated_treatment": "150% if unrated after being rated with exposure >₹100 crore"
+            }
+        },
+        {
+            "id": "basel_node_20",
+            "type": "risk_weight",
+            "label": "Regulatory Retail Portfolio",
+            "properties": {
+                "section": "5.9",
+                "risk_weight": "75%",
+                "qualifying_criteria": [
+                    "Orientation: Individual or small business (turnover <₹50 crore)",
+                    "Product: Revolving credits, term loans, leases, commitments",
+                    "Granularity: No exposure >0.2% of total retail portfolio",
+                    "Low value: Maximum aggregated exposure ≤₹7.5 crore"
+                ],
+                "exclusions": [
+                    "Securities investments",
+                    "Mortgage loans qualifying as residential property",
+                    "Commercial real estate",
+                    "Staff loans fully covered",
+                    "Consumer credit including personal loans",
+                    "Capital market exposures",
+                    "Venture capital funds"
+                ]
+            }
+        },
+        {
+            "id": "basel_node_21",
+            "type": "risk_weight",
+            "label": "Claims Secured by Residential Property",
+            "properties": {
+                "section": "5.10",
+                "risk_weights": {
+                    "individual_housing_loans_up_to_30_lakh_LTV≤80": "35%",
+                    "individual_housing_loans_up_to_30_lakh_LTV>80_≤90": "50%",
+                    "individual_housing_loans_30_to_75_lakh_LTV≤80": "35%",
+                    "individual_housing_loans_above_75_lakh_LTV≤75": "50%",
+                    "CRE_RH": "75%",
+                    "CRE": "100%"
+                }
+            }
+        },
+        {
+            "id": "basel_node_22",
+            "type": "risk_weight",
+            "label": "Non-Performing Assets (NPAs)",
+            "properties": {
+                "section": "5.12",
+                "unsecured_portion_treatment": {
+                    "specific_provisions_<20%": "150%",
+                    "specific_provisions_≥20%_<50%": "100%",
+                    "specific_provisions_≥50%": "50%"
+                },
+                "secured_by_land_building_machinery": "100% if provisions ≥15% and conditions met",
+                "residential_property_npa": {
+                    "net_of_provisions": "100%",
+                    "provisions_20%_to_50%": "75%",
+                    "provisions_≥50%": "50%"
+                }
+            }
+        },
+        {
+            "id": "basel_node_23",
+            "type": "risk_weight",
+            "label": "Specified Categories Risk Weights",
+            "properties": {
+                "section": "5.13",
+                "venture_capital_funds": "150%",
+                "consumer_credit_excluding_exceptions": "125%",
+                "credit_card_receivables": "150% or higher",
+                "capital_market_exposures": "125% or higher",
+                "investments_in_nbfc_capital_instruments": "125% or rating-based",
+                "equity_investments_>10%_in_non_financial": "1250%",
+                "equity_investments_≤10%_in_non_financial": "125% or rating-based",
+                "unhedged_foreign_currency_exposure": "25 percentage point increase if potential loss/EBID >75%"
+            }
+        },
+        {
+            "id": "basel_node_24",
+            "type": "process",
+            "label": "Off-Balance Sheet Items Credit Conversion",
+            "properties": {
+                "section": "5.15",
+                "direct_credit_substitutes": "100%",
+                "transaction_related_contingent": "50%",
+                "short_term_trade_lc": "20%",
+                "sale_and_repurchase": "100%",
+                "forward_asset_purchases": "100%",
+                "note_issuance_facilities": "50%",
+                "commitments_with_certain_drawdown": "100%",
+                "other_commitments_up_to_1_year": "20%",
+                "other_commitments_over_1_year": "50%",
+                "unconditionally_cancellable": "0%",
+                "cash_credit_overdraft_≥150_crore": "20% (undrawn portion)"
+            }
+        },
+        {
+            "id": "basel_node_25",
+            "type": "process",
+            "label": "Counterparty Credit Risk (CCR)",
+            "properties": {
+                "section": "5.15.3",
+                "default_risk_method": "Current Exposure Method (CEM)",
+                "cva_risk_charge": "Standardised formula with weights based on ratings",
+                "qccp_trade_exposure": "2% risk weight",
+                "qccp_default_fund": "1250% subject to cap of 20% of trade exposures",
+                "non_qccp_trade": "Standardised approach as per counterparty",
+                "non_qccp_default_fund": "1250%"
+            }
+        },
+        {
+            "id": "basel_node_26",
+            "type": "external_reference",
+            "label": "Eligible Credit Rating Agencies (ECAI)",
+            "properties": {
+                "section": "6.1",
+                "domestic_agencies": [
+                    "Acuite Ratings & Research Limited",
+                    "Brickwork Ratings India Private Limited",
+                    "CARE Ratings Limited",
+                    "CRISIL Ratings Limited",
+                    "ICRA Limited",
+                    "India Ratings and Research Private Limited",
+                    "INFOMERICS Valuation and Rating Ltd."
+                ],
+                "international_agencies": [
+                    "Fitch",
+                    "Moody's",
+                    "Standard & Poor's"
+                ],
+                "usage_consistency": "Cannot cherry-pick, must use consistently",
+                "unsolicited_ratings": "Cannot be used",
+                "multiple_ratings_rule": "Use higher of two, or second lowest of three or more"
+            }
+        },
+        {
+            "id": "basel_node_27",
+            "type": "eligible_collateral",
+            "label": "Eligible Financial Collateral",
+            "properties": {
+                "section": "7.3.5",
+                "items": [
+                    "Cash and fixed deposits with lending bank",
+                    "Gold (bullion and jewellery)",
+                    "Central and State Government securities",
+                    "Kisan Vikas Patra and NSC (if no lock-in)",
+                    "Life insurance policies with surrender value",
+                    "Debt securities rated ≥BBB(-) or A3",
+                    "Unrated bank securities (listed, senior, rated issues ≥BBB(-)/A3)",
+                    "Mutual fund units (if fund invests in eligible instruments)"
+                ],
+                "exclusions": [
+                    "Re-securitisations regardless of rating"
+                ]
+            }
+        },
+        {
+            "id": "basel_node_28",
+            "type": "haircut",
+            "label": "Standard Supervisory Haircuts",
+            "properties": {
+                "section": "7.3.7",
+                "table_12_reference": true,
+                "government_securities": {
+                    "≤1_year": "0.5%",
+                    ">1_≤5_years": "2%",
+                    ">5_years": "4%"
+                },
+                "other_aaa_to_aa": {
+                    "≤1_year": "1%",
+                    ">1_≤5_years": "4%",
+                    ">5_years": "8%"
+                },
+                "other_a_to_bbb": {
+                    "≤1_year": "2%",
+                    ">1_≤5_years": "6%",
+                    ">5_years": "12%"
+                },
+                "gold": "15%",
+                "currency_mismatch": "8%",
+                "holding_period_adjustment": "Scale based on actual holding period"
+            }
+        },
+        {
+            "id": "basel_node_29",
+            "type": "eligible_guarantor",
+            "label": "Eligible Guarantors",
+            "properties": {
+                "section": "7.5.6",
+                "entities": [
+                    "Sovereigns and sovereign entities",
+                    "BIS, IMF, ECBC, EC",
+                    "MDBs listed in para 5.5",
+                    "ECGC, CGTMSE, CRGFTLIH, NCGTC schemes",
+                    "Banks and primary dealers with lower risk weight",
+                    "Externally rated other entities"
+                ],
+                "operational_requirements": [
+                    "Direct, explicit, irrevocable, unconditional",
+                    "Timely payout without legal action",
+                    "Cover all payment types or principal only with adjustment"
+                ]
+            }
+        },
+        {
+            "id": "basel_node_30",
+            "type": "market_risk",
+            "label": "Market Risk - Specific Risk Charges",
+            "properties": {
+                "section": "8.3.4",
+                "sovereign_securities": "0% to 1.80% based on residual maturity",
+                "bank_bonds": "Based on CET1 level and maturity (0.28% to 56.25%)",
+                "corporate_bonds": "0.28% to 13.5% based on rating and maturity",
+                "securitisation_exposures": "As per Securitisation Master Direction",
+                "non_common_equity_financial": "1.75% to 11.25% based on maturity"
+            }
+        },
+        {
+            "id": "basel_node_31",
+            "type": "market_risk",
+            "label": "Market Risk - Equity Specific Risk",
+            "properties": {
+                "section": "8.4",
+                "specific_risk": "11.25% or higher based on rating",
+                "general_market_risk": "9% on gross equity positions",
+                "security_receipts": "13.5%",
+                "investments_in_other_banks": "Based on CET1 level and holding type (11.25% to full deduction)",
+                "investments_in_financial_entities": "11.25% to 22.5%",
+                "investments_in_non_financial_≤10%": "11.25%",
+                "investments_in_non_financial_>10%": "100% specific risk only"
+            }
+        },
+        {
+            "id": "basel_node_32",
+            "type": "market_risk",
+            "label": "Foreign Exchange Risk",
+            "properties": {
+                "section": "8.5",
+                "capital_charge": "9% of net open position",
+                "coverage": "All foreign currency and gold positions",
+                "calculation": "Net spot + net forward + guarantees + net future income + options delta"
+            }
+        },
+        {
+            "id": "basel_node_33",
+            "type": "operational_risk",
+            "label": "Operational Risk - Basic Indicator Approach",
+            "properties": {
+                "section": "9",
+                "formula": "KBIA = [Σ(GI₁...ₙ × α)] / n",
+                "alpha": "15%",
+                "gross_income_definition": "Net interest income + net non-interest income, excluding: provisions reversals, disposal gains, banking book securities gains, legal settlements, extraordinary items, insurance income",
+                "negative_income_treatment": "Exclude from numerator and denominator"
+            }
+        },
+        {
+            "id": "basel_node_34",
+            "type": "process",
+            "label": "Internal Capital Adequacy Assessment Process (ICAAP)",
+            "properties": {
+                "section": "12-13",
+                "purpose": "Assess capital adequacy for all material risks beyond Pillar 1",
+                "covered_risks": [
+                    "Interest rate risk in banking book",
+                    "Credit concentration risk",
+                    "Liquidity risk",
+                    "Settlement risk",
+                    "Reputational risk",
+                    "Strategic risk",
+                    "Model risk",
+                    "Residual securitisation risk",
+                    "Cyber security risk",
+                    "Group risk",
+                    "Outsourcing risk"
+                ],
+                "principles": [
+                    "Forward-looking",
+                    "Risk-based",
+                    "Proportional to complexity",
+                    "Include stress tests",
+                    "Independent review",
+                    "Integrated into management"
+                ],
+                "submission": "By end of first quarter to RBI"
+            }
+        },
+        {
+            "id": "basel_node_35",
+            "type": "process",
+            "label": "Pillar 3 - Market Discipline Disclosures",
+            "properties": {
+                "section": "14",
+                "frequency": "Half-yearly (some tables quarterly)",
+                "location": "Bank website, Regulatory Disclosures Section",
+                "archive": "Minimum 3 years",
+                "tables": [
+                    "DF-1: Scope of Application",
+                    "DF-2: Capital Adequacy",
+                    "DF-3: Credit Risk General",
+                    "DF-4: Standardised Approach",
+                    "DF-5: Credit Risk Mitigation",
+                    "DF-6: Securitisation",
+                    "DF-7: Market Risk",
+                    "DF-8: Operational Risk",
+                    "DF-9: IRRBB",
+                    "DF-10: Counterparty Credit Risk",
+                    "DF-11: Composition of Capital",
+                    "DF-12: Reconciliation Requirements",
+                    "DF-13: Main Features of Instruments",
+                    "DF-14: Full Terms and Conditions",
+                    "DF-15: Remuneration",
+                    "DF-16: Equities Banking Book",
+                    "DF-17: Leverage Ratio Summary",
+                    "DF-18: Leverage Ratio Template"
+                ]
+            }
+        },
+        {
+            "id": "basel_node_36",
+            "type": "instrument",
+            "label": "Perpetual Non-Cumulative Preference Shares (PNCPS)",
+            "properties": {
+                "section": "Annex 3",
+                "capital_tier": "Additional Tier 1",
+                "key_features": [
+                    "Perpetual, no maturity",
+                    "Full discretion on dividends",
+                    "Non-cumulative dividends",
+                    "Call option after 5 years with RBI approval",
+                    "Loss absorption at 6.125% CET1 trigger"
+                ],
+                "limits": "Together with PDI ≤1.5% of RWA",
+                "seniority": "Superior to equity, subordinated to PDI, depositors, general creditors"
+            }
+        },
+        {
+            "id": "basel_node_37",
+            "type": "instrument",
+            "label": "Perpetual Debt Instruments (PDI)",
+            "properties": {
+                "section": "Annex 4",
+                "capital_tier": "Additional Tier 1",
+                "key_features": [
+                    "Perpetual, no maturity",
+                    "Full discretion on coupons",
+                    "Non-cumulative interest",
+                    "Call option after 5 years with RBI approval",
+                    "Loss absorption at 6.125% CET1 trigger"
+                ],
+                "seniority": "Superior to PNCPS and equity, subordinated to depositors, general creditors, Tier 2",
+                "coupon_payment_sources": [
+                    "Current year profits",
+                    "Previous profits",
+                    "Reserves (including statutory reserves if others insufficient)"
+                ]
+            }
+        },
+        {
+            "id": "basel_node_38",
+            "type": "instrument",
+            "label": "Tier 2 Debt Capital Instruments",
+            "properties": {
+                "section": "Annex 5",
+                "key_features": [
+                    "Minimum maturity 5 years",
+                    "Progressive discount: 20% per year in last 5 years",
+                    "No put option",
+                    "Call option after 5 years with RBI approval"
+                ],
+                "foreign_currency_limit": "≤25% of unimpaired Tier 1 capital",
+                "seniority": "Senior to Tier 1 instruments, subordinated to depositors and general creditors"
+            }
+        },
+        {
+            "id": "basel_node_39",
+            "type": "instrument",
+            "label": "PCPS/RNCPS/RCPS",
+            "properties": {
+                "section": "Annex 6",
+                "capital_tier": "Tier 2",
+                "types": [
+                    "Perpetual Cumulative",
+                    "Redeemable Non-Cumulative",
+                    "Redeemable Cumulative"
+                ],
+                "dated_minimum": "5 years",
+                "amortisation": "20% per year in last 5 years",
+                "seniority": "Senior to Tier 1, subordinated to depositors and general creditors"
+            }
+        },
+        {
+            "id": "basel_node_40",
+            "type": "mechanism",
+            "label": "Point of Non-Viability (PONV) Trigger",
+            "properties": {
+                "section": "Annex 15",
+                "applicable_to": "All non-common equity Tier 1 and Tier 2 instruments",
+                "trigger_events": [
+                    "RBI decision that conversion/write-off necessary to prevent non-viability",
+                    "Decision for public sector capital injection"
+                ],
+                "action": "Full conversion to common shares or permanent write-off",
+                "timing": "Before any public sector injection",
+                "purpose": "Ensure public sector funds not diluted"
+            }
+        },
+        {
+            "id": "basel_node_41",
+            "type": "scheme",
+            "label": "Credit Guarantee Schemes",
+            "properties": {
+                "section": "Annex 24",
+                "cgtmse_coverage": {
+                    "upto_5_lakh": "85% (max ₹4.25 lakh)",
+                    "5_to_50_lakh": "75% (max ₹37.5 lakh)",
+                    "50_to_200_lakh": "75% (max ₹150 lakh)"
+                },
+                "cgfsf": "First loss 10% deducted, 60% guaranteed 0% RW, balance at counterparty RW",
+                "cgfsd": "75% guaranteed but counterparty RW applied (payout after recovery)",
+                "cgfmu": "First loss 3% deducted, 72.75% guaranteed subject to payout cap"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_2",
+            "relationship": "PRESCRIBES"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_3",
+            "relationship": "PRESCRIBES"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_4",
+            "relationship": "PRESCRIBES"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_5",
+            "relationship": "PRESCRIBES"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_6",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "basel_node_6",
+            "target": "basel_node_7",
+            "relationship": "COMPOSED_OF"
+        },
+        {
+            "source": "basel_node_6",
+            "target": "basel_node_8",
+            "relationship": "COMPOSED_OF"
+        },
+        {
+            "source": "basel_node_6",
+            "target": "basel_node_9",
+            "relationship": "COMPOSED_OF"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_10",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "basel_node_7",
+            "target": "basel_node_11",
+            "relationship": "SUBJECT_TO"
+        },
+        {
+            "source": "basel_node_8",
+            "target": "basel_node_11",
+            "relationship": "SUBJECT_TO"
+        },
+        {
+            "source": "basel_node_9",
+            "target": "basel_node_11",
+            "relationship": "SUBJECT_TO"
+        },
+        {
+            "source": "basel_node_10",
+            "target": "basel_node_11",
+            "relationship": "SUBJECT_TO"
+        },
+        {
+            "source": "basel_node_11",
+            "target": "basel_node_12",
+            "relationship": "GOVERNED_BY"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_13",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_14",
+            "relationship": "PRESCRIBES_RISK_WEIGHT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_15",
+            "relationship": "PRESCRIBES_RISK_WEIGHT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_16",
+            "relationship": "PRESCRIBES_RISK_WEIGHT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_17",
+            "relationship": "PRESCRIBES_RISK_WEIGHT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_18",
+            "relationship": "PRESCRIBES_RISK_WEIGHT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_19",
+            "relationship": "PRESCRIBES_RISK_WEIGHT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_20",
+            "relationship": "PRESCRIBES_RISK_WEIGHT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_21",
+            "relationship": "PRESCRIBES_RISK_WEIGHT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_22",
+            "relationship": "PRESCRIBES_TREATMENT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_23",
+            "relationship": "PRESCRIBES_RISK_WEIGHT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_24",
+            "relationship": "PRESCRIBES_TREATMENT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_25",
+            "relationship": "PRESCRIBES_TREATMENT_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_26",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "basel_node_26",
+            "target": "basel_node_19",
+            "relationship": "PROVIDES_RATINGS_FOR"
+        },
+        {
+            "source": "basel_node_26",
+            "target": "basel_node_18",
+            "relationship": "PROVIDES_RATINGS_FOR"
+        },
+        {
+            "source": "basel_node_26",
+            "target": "basel_node_15",
+            "relationship": "PROVIDES_RATINGS_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_27",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_28",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "basel_node_27",
+            "target": "basel_node_28",
+            "relationship": "SUBJECT_TO_HAIRCUT"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_29",
+            "relationship": "DEFINES"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_30",
+            "relationship": "PRESCRIBES_MARKET_RISK_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_31",
+            "relationship": "PRESCRIBES_MARKET_RISK_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_32",
+            "relationship": "PRESCRIBES_MARKET_RISK_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_33",
+            "relationship": "PRESCRIBES_OPERATIONAL_RISK_FOR"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_34",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_35",
+            "relationship": "REQUIRES"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_36",
+            "relationship": "DEFINES_INSTRUMENT"
+        },
+        {
+            "source": "basel_node_36",
+            "target": "basel_node_9",
+            "relationship": "IS_TYPE_OF"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_37",
+            "relationship": "DEFINES_INSTRUMENT"
+        },
+        {
+            "source": "basel_node_37",
+            "target": "basel_node_9",
+            "relationship": "IS_TYPE_OF"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_38",
+            "relationship": "DEFINES_INSTRUMENT"
+        },
+        {
+            "source": "basel_node_38",
+            "target": "basel_node_10",
+            "relationship": "IS_TYPE_OF"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_39",
+            "relationship": "DEFINES_INSTRUMENT"
+        },
+        {
+            "source": "basel_node_39",
+            "target": "basel_node_10",
+            "relationship": "IS_TYPE_OF"
+        },
+        {
+            "source": "basel_node_36",
+            "target": "basel_node_40",
+            "relationship": "SUBJECT_TO"
+        },
+        {
+            "source": "basel_node_37",
+            "target": "basel_node_40",
+            "relationship": "SUBJECT_TO"
+        },
+        {
+            "source": "basel_node_38",
+            "target": "basel_node_40",
+            "relationship": "SUBJECT_TO"
+        },
+        {
+            "source": "basel_node_39",
+            "target": "basel_node_40",
+            "relationship": "SUBJECT_TO"
+        },
+        {
+            "source": "basel_node_1",
+            "target": "basel_node_41",
+            "relationship": "REFERENCES"
+        },
+        {
+            "source": "basel_node_41",
+            "target": "basel_node_14",
+            "relationship": "IMPLEMENTS"
+        },
+        {
+            "source": "basel_node_2",
+            "target": "basel_node_3",
+            "relationship": "AUGMENTED_BY"
+        },
+        {
+            "source": "basel_node_2",
+            "target": "basel_node_4",
+            "relationship": "AUGMENTED_BY"
+        },
+        {
+            "source": "basel_node_5",
+            "target": "basel_node_2",
+            "relationship": "BACKSTOPS"
+        },
+        {
+            "source": "basel_node_34",
+            "target": "basel_node_35",
+            "relationship": "INFORMS"
+        },
+        {
+            "source": "basel_node_25",
+            "target": "basel_node_17",
+            "relationship": "REFERENCES_FOR_QCCP"
+        },
+        {
+            "source": "basel_node_26",
+            "target": "basel_node_30",
+            "relationship": "RATINGS_USED_FOR"
+        },
+        {
+            "source": "basel_node_26",
+            "target": "basel_node_31",
+            "relationship": "RATINGS_USED_FOR"
+        },
+        {
+            "source": "basel_node_9",
+            "target": "basel_node_40",
+            "relationship": "LOSS_ABSORPTION_AT"
+        },
+        {
+            "source": "basel_node_10",
+            "target": "basel_node_40",
+            "relationship": "LOSS_ABSORPTION_AT"
+        }
+    ],
+    "metadata": {
+        "generated_from": "Basel III Capital Regulations MC.pdf",
+        "extraction_date": "2026-03-05",
+        "node_count": 41,
+        "edge_count": 58,
+        "key_topics": [
+            "Capital Adequacy",
+            "Common Equity Tier 1",
+            "Additional Tier 1",
+            "Tier 2 Capital",
+            "Regulatory Adjustments",
+            "Risk-Weighted Assets",
+            "Credit Risk",
+            "Market Risk",
+            "Operational Risk",
+            "Leverage Ratio",
+            "Capital Conservation Buffer",
+            "Countercyclical Capital Buffer",
+            "Pillar 2 ICAAP",
+            "Pillar 3 Disclosures",
+            "Credit Risk Mitigation",
+            "Securitisation",
+            "Counterparty Credit Risk",
+            "Capital Instruments"
+        ],
+        "key_thresholds": {
+            "minimum_cet1": "5.5%",
+            "minimum_tier1": "7.0%",
+            "minimum_total": "9.0%",
+            "ccb": "2.5%",
+            "leverage_ratio_domestic_sibs": "4.0%",
+            "leverage_ratio_other": "3.5%",
+            "retail_portfolio_limit": "₹7.5 crore",
+            "small_business_turnover": "₹50 crore",
+            "unrated_corporate_threshold": "₹200 crore"
+        }
+    }
+}

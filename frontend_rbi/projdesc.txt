@@ -1,0 +1,486 @@
+You’re thinking in the **right direction**, but for a **6-hour hackathon MVP** you must **narrow the scope aggressively**. RBI regulates many entities, but you only need **2–3 major categories** that cover most fintech/banking products.
+
+I'll break this into **two parts**:
+
+1️⃣ Which organizations to target for MVP
+2️⃣ Backend architecture for **Agentic AI + new regulation ingestion**
+
+---
+
+# 1️⃣ Which Organizations to Target (For MVP)
+
+RBI regulates many entities, but most fintechs fall into **3 big buckets**.
+
+These three will cover **80% of modern financial startups**.
+
+---
+
+## 1️⃣ Non-Banking Financial Companies (NBFCs)
+
+Most **lending startups** are NBFCs.
+
+Examples:
+
+* Lending apps
+* Microfinance companies
+* Vehicle loans
+* BNPL platforms
+
+Important regulations they follow include **Know Your Customer (KYC)** and other NBFC directions issued by the Reserve Bank of India.
+
+Typical compliance areas:
+
+* KYC compliance
+* Digital lending guidelines
+* Interest rate disclosure
+* AML checks
+
+Why choose NBFC:
+
+✔ Huge number of companies
+✔ Many regulatory changes
+✔ Judges understand the use case
+
+---
+
+## 2️⃣ Payment Aggregators / Fintech Payment Platforms
+
+Examples:
+
+* Razorpay
+* PayU
+* Cashfree
+* Payment gateways
+
+They must follow RBI rules around:
+
+* Payment security
+* Data localization
+* merchant onboarding
+* fraud detection
+
+These are governed by RBI’s Payment Aggregator frameworks.
+
+Why choose:
+
+✔ Highly relevant for fintech
+✔ Strong compliance requirements
+
+---
+
+## 3️⃣ Commercial Banks
+
+These are traditional banks regulated under RBI’s commercial banking directions.
+
+Key compliance areas:
+
+* Risk management
+* capital adequacy
+* climate risk reporting
+* outsourcing risk
+* internal ombudsman rules
+
+Why include them:
+
+✔ Most RBI circulars target banks
+✔ Demonstrates broad applicability
+
+---
+
+# Best Choice for Your MVP
+
+Instead of 10 categories, choose **these three**:
+
+```text
+1️⃣ NBFC
+2️⃣ Payment Aggregator
+3️⃣ Commercial Bank
+```
+
+These three cover **lending + payments + banking**.
+
+Your onboarding dropdown becomes:
+
+```text
+Select Organization Type
+
+• NBFC
+• Payment Aggregator
+• Commercial Bank
+```
+
+---
+
+# 2️⃣ What Details to Collect During Registration
+
+Keep it **simple for MVP**.
+
+### Organization Profile
+
+```text
+Company Name
+Organization Type
+CIN Number
+GSTIN
+Head Office Location
+```
+
+---
+
+### Regulatory Scope
+
+```text
+What services do you provide?
+
+☑ Lending
+☑ Digital Payments
+☑ Wallet Services
+☑ Merchant Payments
+☑ Cross Border Payments
+```
+
+This helps determine **which RBI rules apply**.
+
+---
+
+### Compliance Setup
+
+```text
+Which compliance areas apply?
+
+☑ KYC
+☑ AML
+☑ Data Localization
+☑ Risk Management
+☑ Lending Transparency
+```
+
+---
+
+### Tech Setup
+
+```text
+Data storage location
+
+☑ India
+☑ Outside India
+
+KYC method
+
+☑ Aadhaar eKYC
+☑ Video KYC
+☑ Offline KYC
+```
+
+These details help the **AI determine compliance impact**.
+
+---
+
+# 3️⃣ Backend Approach (Very Important)
+
+Your idea of **embedding RBI master directions** is correct.
+
+But you need **two layers of documents**:
+
+```
+1️⃣ Master Regulations (base rules)
+2️⃣ Circular Updates (new changes)
+```
+
+---
+
+# Recommended Architecture
+
+```
+                RBI Website
+                     │
+                     │
+            Scraper Agent
+                     │
+                     ▼
+             Document Parser
+                     │
+                     ▼
+            JSON Structured Data
+                     │
+                     ▼
+              Embedding Engine
+                     │
+                     ▼
+           Vector Database (RAG)
+```
+
+---
+
+# 4️⃣ Handling New RBI Regulations
+
+This is the **key part of your hackathon solution**.
+
+When RBI publishes a new circular:
+
+Step 1
+
+Scrape RBI website.
+
+Step 2
+
+Download PDF.
+
+Step 3
+
+Convert PDF → structured text.
+
+Step 4
+
+Extract key metadata.
+
+Example JSON:
+
+```json
+{
+  "title": "KYC Directions 2025",
+  "category": "Commercial Banks",
+  "compliance_area": "KYC",
+  "summary": "Updated guidelines for customer verification",
+  "effective_date": "2026-01-01",
+  "impact_entities": ["Banks", "NBFC"]
+}
+```
+
+---
+
+# 5️⃣ Should You Merge New Embeddings?
+
+This is a **very important design decision**.
+
+You have two options.
+
+---
+
+## Option A (Bad)
+
+Merge everything into **one vector database**.
+
+Problem:
+
+* Hard to track changes
+* Hard to identify **latest rule**
+
+---
+
+## Option B (Better)
+
+Use **separate collections**.
+
+Example:
+
+```
+VectorDB
+│
+├── master_directions
+│
+├── circular_updates
+│
+└── compliance_cases
+```
+
+When query happens:
+
+```
+Search master_directions
++
+Search circular_updates
+```
+
+Then combine results.
+
+---
+
+# 6️⃣ How Agent Detects Compliance Impact
+
+Example scenario:
+
+Company:
+
+```
+NBFC Lending Platform
+```
+
+New circular appears:
+
+```
+RBI updates digital lending rule
+```
+
+Agent pipeline:
+
+```
+1️⃣ Fetch circular
+2️⃣ classify regulation type
+3️⃣ detect affected institutions
+4️⃣ compare with company profile
+5️⃣ generate compliance action
+```
+
+Output:
+
+```
+Impact Level: HIGH
+Affected Area: KYC
+Deadline: 30 days
+```
+
+---
+
+# 7️⃣ Agentic AI System (For Judges)
+
+Your platform will have **5 agents**.
+
+---
+
+### 1️⃣ Scraper Agent
+
+Monitors RBI site.
+
+Detects new circulars.
+
+---
+
+### 2️⃣ Regulation Parser Agent
+
+Extracts:
+
+* title
+* category
+* compliance area
+
+---
+
+### 3️⃣ Regulation Summarizer Agent
+
+Turns **50 page PDF → 5 bullets**.
+
+---
+
+### 4️⃣ Impact Detection Agent
+
+Compares:
+
+```
+company profile
+vs
+new regulation
+```
+
+---
+
+### 5️⃣ Compliance Advisor Agent
+
+Generates:
+
+```
+Action plan
+Implementation checklist
+```
+
+---
+
+# 8️⃣ Example Flow (Very Important for Demo)
+
+User registers:
+
+```
+Company: FinPay
+Type: Payment Aggregator
+```
+
+AI maps applicable rules.
+
+Then a new RBI rule appears.
+
+Agent says:
+
+```
+⚠ RBI Update Detected
+
+New KYC rule for payment aggregators.
+Effective in 60 days.
+```
+
+AI explains:
+
+```
+You must verify merchants using CKYC database.
+```
+
+AI suggests:
+
+```
+Implementation Checklist:
+
+1️⃣ Update merchant onboarding
+2️⃣ Integrate CKYC verification
+3️⃣ Update compliance policy
+```
+
+---
+
+# 9️⃣ Hackathon MVP Stack (Fastest)
+
+Frontend
+
+```
+Next.js
+```
+
+Backend
+
+```
+FastAPI
+```
+
+Vector DB
+
+```
+Chroma
+```
+
+Embedding
+
+```
+OpenAI / InstructorXL
+```
+
+Agent
+
+```
+LangGraph
+```
+
+Scraping
+
+```
+BeautifulSoup
+```
+
+---
+
+# 10️⃣ Feature That Will Impress Judges
+
+Add **Compliance Risk Score**.
+
+Example:
+
+```
+KYC compliance: 92%
+AML compliance: 70%
+Data localization: 60%
+```
+
+---
+
+✅ If you want, I can also give you:
+
+* **the exact 6-hour hackathon build plan (minute-by-minute)**
+* **the best RAG architecture for this problem**
+* **a killer feature that will make your project stand out from other AI compliance tools**.
