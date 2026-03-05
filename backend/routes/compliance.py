@@ -1,9 +1,13 @@
-from fastapi import APIRouter, UploadFile, File, Form, HTTPException, Depends
+from fastapi import APIRouter, UploadFile, File, Form, HTTPException, Depends, Request
 from fastapi.responses import JSONResponse
 import os
 import json
 import tempfile
 from typing import Optional
+from motor.motor_asyncio import AsyncIOMotorDatabase
+from database import get_database
+from routes.auth import extract_token
+from auth import decode_token
 
 # RAG & ML
 from langchain_groq import ChatGroq
@@ -109,10 +113,29 @@ def get_vector_store():
 
 @router.post("/chat/")
 async def compliance_chat(
+    http_request: Request,
     message: str = Form(...),
-    file: Optional[UploadFile] = File(None)
+    file: Optional[UploadFile] = File(None),
+    db: AsyncIOMotorDatabase = Depends(get_database)
 ):
     try:
+        # Fetch user profile for context
+        user_profile = {}
+        try:
+            token = extract_token(http_request)
+            payload = decode_token(token)
+            if payload:
+                username = payload.get("username")
+                user = await db.users.find_one({"username": username}, {"password": 0})
+                if user:
+                    user_profile = {
+                        "company_name": user.get("company_name", "N/A"),
+                        "organization_type": user.get("organization_type", "N/A"),
+                        "head_office_location": user.get("head_office_location", "N/A")
+                    }
+        except Exception as e:
+            print(f"Warning: Could not fetch user profile for chat context: {e}")
+
         api_key = os.environ.get("GROQ_API_KEY", "")
         if not api_key:
             return JSONResponse(status_code=500, content={"error": "GROQ_API_KEY missing from environment"})
@@ -141,6 +164,11 @@ async def compliance_chat(
         Your goal is to perform a high-precision Risk and Rule Violation Analysis using the provided RBI Regulatory Knowledge and the Organization's own documents.
 
         --- 
+        USER PROFILE CONTEXT:
+        - **Company Name:** {user_profile.get('company_name', 'N/A')}
+        - **Organization Type:** {user_profile.get('organization_type', 'N/A')}
+        - **Location:** {user_profile.get('head_office_location', 'N/A')}
+
         CORE DATA SOURCES:
         1. RETRIEVED RBI REGULATORY KNOWLEDGE (Semantic RAG Search):
         {rbi_context_str}
@@ -149,34 +177,36 @@ async def compliance_chat(
         {user_context if user_context else 'NO DOCUMENT UPLOADED. Analyze general RBI guidelines based on the user query.'}
         ---
 
-        ANALYSIS GUIDELINES:
-        - If a document is uploaded: Compare it sentence-by-sentence against the retrieved RBI rules. Identify 'Discrepancies' (where the policy differs from RBI) and 'Omissions' (where the policy is missing a required RBI control).
-        - Detect correctly if the organization is an NBFC, Payment Aggregator, or Bank based on their document or query.
+        BEHAVIORAL RULES:
+        1. **IF A DOCUMENT IS UPLOADED OR THE USER ASKS FOR AN ANALYSIS/COMPLIANCE CHECK**: 
+           Provide the structured "# 🛡️ Compliance Analysis" report specified below.
+        2. **IF IT IS A GENERAL GREETING OR CASUAL QUESTION**: 
+           Respond as a helpful and professional compliance assistant. DO NOT generate the full analysis report. Simply acknowledge and offer specific help based on their organization type.
+        
+        ANALYSIS GUIDELINES (Only if rule 1 applies):
+        - Compare the document/query against the retrieved RBI rules. Identify 'Discrepancies' and 'Omissions'.
         - Be strict. RBI compliance is mandatory.
 
-        REQUIRED OUTPUT STRUCTURE (Markdown):
+        REQUIRED OUTPUT STRUCTURE FOR ANALYSIS (Markdown):
         # 🛡️ Compliance Analysis: [Company Name/Document Title]
 
         ## 📊 Impact Summary
-        - **Impact Level:** [HIGH / MEDIUM / LOW] (High if there are regulatory violations)
+        - **Impact Level:** [HIGH / MEDIUM / LOW]
         - **Primary Regulation:** [e.g., NBFC KYC Master Direction 2025]
-        - **Compliance Score:** [Estimate a % based on gaps found]
+        - **Compliance Score:** [Estimate a %]
 
         ## ⚠️ Detected Discrepancies & Violations
         [For each issue found]:
         - **[Issue Name]**: Describe what is in the document vs what RBI requires.
-        - **Risk:** [e.g., Penalties, License Cancellation, Operational Risk]
+        - **Risk:** [e.g., Penalties, License Cancellation]
 
         ## ✅ Actionable Compliance Checklist
-        [Provide a list of 5-7 concrete steps the company must take to fix the gaps]
         1️⃣ [Step 1]
         2️⃣ [Step 2]
         ...
 
         ## 📅 Key Deadlines & Next Steps
-        - [Provide estimated regulatory deadlines if mentioned in the knowledge or generic best practices]
-
-        If NO document is uploaded, simply answer the user's questions about RBI regulations using the retrieved knowledge, but keep the tone professional and authoritative.
+        - [Provide estimated regulatory deadlines]
         """
 
         messages = [
