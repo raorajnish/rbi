@@ -12,6 +12,9 @@ class UserRegisterRequest(BaseModel):
     cin_number: str
     gstin: str
     head_office_location: str
+    services_provided: str = "N/A"
+    compliance_areas: str = "N/A"
+    tech_setup: str = "N/A"
 
 class UserLoginRequest(BaseModel):
     username: str
@@ -27,6 +30,9 @@ class UserResponse(BaseModel):
     email: str
     company_name: str
     organization_type: str
+    services_provided: Optional[str] = "N/A"
+    compliance_areas: Optional[str] = "N/A"
+    tech_setup: Optional[str] = "N/A"
     role: str = "admin"
     
 class ProfileUpdateRequest(BaseModel):
@@ -35,6 +41,9 @@ class ProfileUpdateRequest(BaseModel):
     cin_number: Optional[str] = None
     gstin: Optional[str] = None
     head_office_location: Optional[str] = None
+    services_provided: Optional[str] = None
+    compliance_areas: Optional[str] = None
+    tech_setup: Optional[str] = None
 
 class ProfileResponse(BaseModel):
     id: str = Field(alias="_id")
@@ -45,6 +54,9 @@ class ProfileResponse(BaseModel):
     cin_number: str
     gstin: str
     head_office_location: str
+    services_provided: str = "N/A"
+    compliance_areas: str = "N/A"
+    tech_setup: str = "N/A"
     role: str
     created_at: datetime
     updated_at: datetime

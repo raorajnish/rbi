@@ -50,6 +50,25 @@ export default function Dashboard() {
   const [isChatLoading, setIsChatLoading] = useState(false);
   const fileInputRef = useRef(null);
 
+  // Reports state
+  const [reportsList, setReportsList] = useState([]);
+  const [activeReportId, setActiveReportId] = useState(null);
+  const [reportProgress, setReportProgress] = useState(null);
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  // Mock data for demo impact
+  const mockRegulatoryAlerts = [
+    { title: "Master Direction: CKYC 2024", severity: "CRITICAL", date: "2 hours ago", icon: "🔴" },
+    { title: "Circular: Lending Transparency", severity: "HIGH", date: "1 day ago", icon: "🟡" },
+    { title: "Notification: PMLA Internal Audit", severity: "INFO", date: "3 days ago", icon: "🔵" },
+  ];
+
+  const mockRiskMetrics = [
+    { label: "Data Localization", value: 94, status: "Secure" },
+    { label: "KYC Drift", value: 12, status: "Low Risk" },
+    { label: "AML Monitoring", value: 88, status: "Operational" },
+  ];
+
   // Fetch profile when component mounts
   useEffect(() => {
     const fetchProfile = async () => {
@@ -85,23 +104,39 @@ export default function Dashboard() {
   // Fetch regulations when that tab is opened
   useEffect(() => {
     if (activeTab === "regulations" && regulations.length === 0) {
-      const fetchRegs = async () => {
-        setLoadingRegulations(true);
-        try {
-          const token = localStorage.getItem("access");
-          const response = await api.get("regulations/", {
-            headers: { Authorization: `Bearer ${token}` }
-          });
-          setRegulations(response.data.notifications || []);
-        } catch (err) {
-          console.error("Error fetching regulations:", err);
-        } finally {
-          setLoadingRegulations(false);
+      // Mock data for hackathon demo impact
+      const mockRegs = [
+        {
+          title: "Master Direction – Know Your Customer (KYC) Direction, 2016 (Updated 2024)",
+          date: "Jan 04, 2024",
+          reference_number: "RBI/DBR/2015-16/18",
+          department: "Department of Regulation",
+          ai_impact_level: "High",
+          ai_deadline: "March 31, 2024",
+          ai_summary: "Amendment to include Video-based Customer Identification Process (V-CIP) for all NBFCs with simplified due diligence for small accounts.",
+          ai_impact_on_organization: "Requires immediate update of the onboard logic to support Aadhaar-offline XML and V-CIP encryption standards.",
+          ai_key_changes: ["Include V-CIP in KYC policy", "Simplified due diligence for low-value accounts"],
+          ai_risk: ["Non-compliance with encryption standards", "Incomplete audit trails for V-CIP sessions"],
+          ai_action_items: ["Implement AES-256 for V-CIP storage", "Update privacy policy to reflect XML-Aadhaar usage", "Conduct internal audit of onboarding logs"]
+        },
+        {
+          title: "Framework for Scale Based Regulation for Non-Banking Financial Companies",
+          date: "Oct 22, 2023",
+          reference_number: "RBI/2023-24/102",
+          department: "Department of Supervision",
+          ai_impact_level: "Medium",
+          ai_deadline: "None",
+          ai_summary: "Categorization of NBFCs into Base, Middle, Upper and Top Layers based on asset size and risk profile.",
+          ai_impact_on_organization: "As a 'Middle Layer' NBFC, stricter capital adequacy and disclosure norms apply starting next fiscal.",
+          ai_key_changes: ["New classification criteria", "Mandatory compliance officer for Middle Layer"],
+          ai_risk: ["Capital adequacy ratio falling below 15%", "Delayed disclosure of promoter shareholding"],
+          ai_action_items: ["Recalculate CRAR based on new risk weights", "Automate quarterly disclosure filings", "Verify promoter shareholding status"]
         }
-      };
-      fetchRegs();
+      ];
+      setRegulations(mockRegs);
+      setLoadingRegulations(false);
     }
-  }, [activeTab, regulations.length]);
+  }, [activeTab]);
 
   const handleLogout = () => {
     logout();
@@ -151,6 +186,47 @@ export default function Dashboard() {
       setIsChatLoading(false);
     }
   };
+
+  // --- Audit Report Logic ---
+  const fetchReportsList = async () => {
+    try {
+      const token = localStorage.getItem("access");
+      const response = await api.get("compliance/reports/list", {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setReportsList(response.data);
+    } catch (err) {
+      console.error("Error fetching reports:", err);
+    }
+  };
+
+  useEffect(() => {
+    if (activeTab === "reports") {
+      fetchReportsList();
+    }
+  }, [activeTab]);
+
+  useEffect(() => {
+    let pollInterval;
+    if (activeReportId) {
+      pollInterval = setInterval(async () => {
+        try {
+          const response = await api.get(`compliance/report/status/${activeReportId}`);
+          setReportProgress(response.data);
+          if (response.data.status === "COMPLETED" || response.data.status === "FAILED") {
+            setActiveReportId(null);
+            setIsGenerating(false);
+            fetchReportsList();
+          }
+        } catch (err) {
+          console.error("Polling error:", err);
+          setActiveReportId(null);
+          setIsGenerating(false);
+        }
+      }, 2000);
+    }
+    return () => clearInterval(pollInterval);
+  }, [activeReportId]);
 
   const handleProfileSave = async () => {
     try {
@@ -375,54 +451,87 @@ export default function Dashboard() {
                   </div>
                 ))}
               </div>
-
               {/* Compliance score cards */}
-              <div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: "var(--text-secondary)", marginBottom: 14, display: "flex", alignItems: "center", gap: 8 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <div style={{ 
+                  fontSize: 14, fontWeight: 600, color: "var(--text-secondary)", 
+                  display: "flex", alignItems: "center", gap: 8,
+                  padding: "4px 0"
+                }}>
                   <Activity size={16} />
                   Compliance Scores
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14 }}>
-                  {complianceItems.map((item) => {
-                    const color = getScoreColor(item.score);
-                    return (
-                      <div key={item.label} style={{
-                        background: "rgba(255,255,255,0.6)",
-                        backdropFilter: "blur(10px)",
-                        border: "1px solid rgba(27,38,59,0.08)",
-                        borderRadius: 14,
-                        padding: "18px 20px",
-                      }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
-                          <span style={{ fontSize: 13, fontWeight: 500, color: "var(--text-primary)" }}>{item.label}</span>
-                          <span style={{
-                            fontSize: 11, fontWeight: 600,
-                            padding: "2px 8px", borderRadius: 20,
-                            background: `${color}18`, color,
-                          }}>
-                            {getScoreLabel(item.score)}
-                          </span>
-                        </div>
-                        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                          <div style={{
-                            flex: 1, height: 6, borderRadius: 99,
-                            background: "rgba(27,38,59,0.08)",
-                            overflow: "hidden",
-                          }}>
-                            <div style={{
-                              height: "100%", width: `${item.score}%`,
-                              background: color,
-                              borderRadius: 99,
-                              transition: "width 0.6s ease",
-                            }} />
-                          </div>
-                          <span style={{ fontSize: 15, fontWeight: 700, color, minWidth: 38 }}>
-                            {item.score}%
-                          </span>
-                        </div>
+
+                {/* Metrics Grid */}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+                  {mockRiskMetrics.map(metric => (
+                    <div key={metric.label} style={{
+                      padding: "20px", borderRadius: 16, background: "rgba(255,255,255,0.6)",
+                      border: "1px solid rgba(27,38,59,0.08)", backdropFilter: "blur(10px)",
+                      minWidth: 0
+                    }}>
+                      <div style={{ fontSize: 11, fontWeight: 700, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 8 }}>{metric.label}</div>
+                      <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+                        <div style={{ fontSize: 24, fontWeight: 800, color: "var(--primary)" }}>{metric.value}%</div>
+                        <div style={{ fontSize: 11, color: "#10B981", fontWeight: 700 }}>{metric.status}</div>
                       </div>
-                    );
-                  })}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Alerts and Analytics */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                  {/* Recent Alerts */}
+                  <div style={{
+                    padding: "24px", borderRadius: 20, background: "#fff", border: "1px solid rgba(27,38,59,0.08)",
+                    minWidth: 0
+                  }}>
+                    <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 16, display: "flex", alignItems: "center", gap: 8 }}>
+                      <AlertCircle size={18} color="#EF4444" /> Live Regulatory Alerts
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                      {mockRegulatoryAlerts.map(alert => (
+                        <div key={alert.title} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingBottom: 12, borderBottom: "1px solid rgba(0,0,0,0.03)" }}>
+                          <div style={{ display: "flex", gap: 10, alignItems: "center", overflow: "hidden" }}>
+                            <span style={{ fontSize: 16, flexShrink: 0 }}>{alert.icon}</span>
+                            <div style={{ overflow: "hidden" }}>
+                              <div style={{ fontSize: 13, fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{alert.title}</div>
+                              <div style={{ fontSize: 11, color: "var(--text-muted)" }}>{alert.date}</div>
+                            </div>
+                          </div>
+                          <span style={{ 
+                            fontSize: 9, fontWeight: 800, padding: "3px 8px", borderRadius: 4, flexShrink: 0,
+                            background: alert.severity === "CRITICAL" ? "#EF444410" : "#F59E0B10",
+                            color: alert.severity === "CRITICAL" ? "#EF4444" : "#F59E0B"
+                          }}>{alert.severity}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Compliance Posture Chart Mock */}
+                  <div style={{
+                    padding: "24px", borderRadius: 20, background: "var(--primary)", color: "#fff", 
+                    display: "flex", flexDirection: "column", justifyContent: "space-between",
+                    minWidth: 0
+                  }}>
+                    <div>
+                      <div style={{ fontSize: 13, fontWeight: 600, opacity: 0.8, marginBottom: 4 }}>Compliance Posture</div>
+                      <div style={{ fontSize: 32, fontWeight: 800 }}>88.4<span style={{ fontSize: 18, opacity: 0.6 }}>/100</span></div>
+                    </div>
+                    <div style={{ marginTop: 20 }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, marginBottom: 8, opacity: 0.8 }}>
+                        <span>System Health</span>
+                        <span>Operational</span>
+                      </div>
+                      <div style={{ height: 6, width: "100%", background: "rgba(255,255,255,0.1)", borderRadius: 99, overflow: "hidden" }}>
+                        <div style={{ height: "100%", width: "88%", background: "#10B981" }} />
+                      </div>
+                      <p style={{ fontSize: 11, marginTop: 12, opacity: 0.7, lineHeight: 1.5 }}>
+                        ReguAI Agentic Engine is monitoring 12 concurrent RBI endpoints. No critical breaches detected in current epoch.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -729,163 +838,126 @@ export default function Dashboard() {
           )}
 
           {/* ─── REPORTS TAB ─── */}
-          {activeTab === "reports" && (() => {
-            const reports = [
-              {
-                title: "Monthly Compliance Report",
-                desc: "Full breakdown of all compliance areas, scores, and regulatory actions for the month.",
-                icon: "📊",
-                date: "Mar 2026",
-                pages: 14,
-                status: "Ready",
-                statusColor: "#10B981",
-              },
-              {
-                title: "Audit Trail Report",
-                desc: "Detailed log of all regulatory interactions, changes, and system events.",
-                icon: "🔍",
-                date: "Mar 2026",
-                pages: 8,
-                status: "Ready",
-                statusColor: "#10B981",
-              },
-              {
-                title: "Regulation Impact Summary",
-                desc: "AI-generated impact assessment of the latest 5 RBI circulars on your org profile.",
-                icon: "⚡",
-                date: "Feb 2026",
-                pages: 5,
-                status: "Updated",
-                statusColor: "#3B82F6",
-              },
-              {
-                title: "KYC Status Report",
-                desc: "Current KYC posture, gaps identified, and CKYC integration readiness score.",
-                icon: "🪪",
-                date: "Mar 2026",
-                pages: 6,
-                status: "Action Needed",
-                statusColor: "#F59E0B",
-              },
-              {
-                title: "AML Risk Assessment",
-                desc: "Anti-money laundering controls evaluation with transaction monitoring coverage.",
-                icon: "🛡️",
-                date: "Feb 2026",
-                pages: 10,
-                status: "Ready",
-                statusColor: "#10B981",
-              },
-              {
-                title: "Data Localization Readiness",
-                desc: "Assessment of data residency compliance and infrastructure gap analysis.",
-                icon: "🌐",
-                date: "Jan 2026",
-                pages: 7,
-                status: "Overdue",
-                statusColor: "#EF4444",
-              },
-            ];
-            return (
-              <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          {activeTab === "reports" && (
+            <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+              
+              {/* Header Box */}
+              <div style={{
+                padding: "24px 28px", borderRadius: 16, background: "rgba(255,255,255,0.6)",
+                backdropFilter: "blur(12px)", border: "1px solid rgba(27,38,59,0.08)",
+                display: "flex", justifyContent: "space-between", alignItems: "center"
+              }}>
+                <div>
+                  <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: "var(--text-primary)" }}>Professional Audit Documents</h3>
+                  <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--text-muted)" }}>Formal compliance assessments generated via RBI ReguAI FSM Engine.</p>
+                </div>
+                <button
+                  disabled={isGenerating}
+                  onClick={async () => {
+                    setIsGenerating(true);
+                    try {
+                      const response = await api.post("compliance/report/generate/");
+                      setActiveReportId(response.data.report_id);
+                    } catch (err) {
+                      console.error("Generation error:", err);
+                      setIsGenerating(false);
+                    }
+                  }}
+                  style={{
+                    background: "var(--primary)", color: "#fff", border: "none",
+                    padding: "10px 20px", borderRadius: 10, fontSize: 13, fontWeight: 600,
+                    cursor: isGenerating ? "not-allowed" : "pointer", opacity: isGenerating ? 0.7 : 1
+                  }}
+                >
+                  {isGenerating ? "Processing..." : "Generate New Audit"}
+                </button>
+              </div>
 
-                {/* Top summary banner */}
+              {/* Progress Bar (Visible during generation) */}
+              {(isGenerating || activeReportId) && (
                 <div style={{
-                  background: "rgba(255,255,255,0.6)",
-                  backdropFilter: "blur(10px)",
-                  border: "1px solid rgba(27,38,59,0.08)",
-                  borderRadius: 14,
-                  padding: "18px 24px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
+                  padding: "24px", borderRadius: 16, background: "rgba(255,255,255,0.8)",
+                  border: "1px solid var(--primary)", boxShadow: "0 4px 20px rgba(0,0,0,0.05)"
                 }}>
-                  <div>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: "var(--text-primary)", marginBottom: 2 }}>Reports &amp; Documents</div>
-                    <div style={{ fontSize: 12, color: "var(--text-muted)" }}>Auto-generated compliance reports based on your organization profile</div>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
+                    <span style={{ fontSize: 13, fontWeight: 700, color: "var(--primary)" }}>
+                      {reportProgress?.current_state?.replace(/_/g, " ") || "INITIALIZING FSM ARCHITECTURE"}
+                    </span>
+                    <span style={{ fontSize: 13, fontWeight: 700, color: "var(--primary)" }}>{reportProgress?.progress || 0}%</span>
                   </div>
-                  <div style={{ display: "flex", gap: 10 }}>
-                    {[
-                      { label: "Ready", count: reports.filter(r => r.status === "Ready").length, color: "#10B981" },
-                      { label: "Pending", count: reports.filter(r => r.status !== "Ready").length, color: "#F59E0B" },
-                    ].map(({ label, count, color }) => (
-                      <div key={label} style={{
-                        padding: "6px 14px", borderRadius: 99,
-                        background: `${color}12`, border: `1px solid ${color}30`,
-                        fontSize: 12, fontWeight: 600, color,
-                        display: "flex", alignItems: "center", gap: 6,
-                      }}>
-                        <span style={{ fontSize: 14, fontWeight: 800 }}>{count}</span> {label}
-                      </div>
+                  <div style={{ height: 8, background: "rgba(27,38,59,0.1)", borderRadius: 99, overflow: "hidden" }}>
+                    <div style={{ 
+                      height: "100%", background: "var(--primary)", width: `${reportProgress?.progress || 0}%`,
+                      transition: "width 0.5s ease"
+                    }} />
+                  </div>
+                  <div style={{ marginTop: 12, display: "flex", gap: 8 }}>
+                    {["INIT", "MODEL", "AUDIT", "PLAN", "FINAL"].map((step, idx) => (
+                      <div key={idx} style={{ 
+                        flex: 1, height: 4, borderRadius: 2,
+                        background: (reportProgress?.progress || 0) >= (idx + 1) * 20 ? "var(--primary)" : "rgba(27,38,59,0.1)"
+                      }} />
                     ))}
                   </div>
                 </div>
+              )}
 
-                {/* Report cards grid */}
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14 }}>
-                  {reports.map(report => (
-                    <div key={report.title} style={{
-                      background: "rgba(255,255,255,0.6)",
-                      backdropFilter: "blur(10px)",
-                      border: "1px solid rgba(27,38,59,0.08)",
-                      borderRadius: 14,
-                      padding: "20px 22px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 12,
+              {/* Reports Grid */}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
+                {reportsList.length === 0 && !isGenerating ? (
+                  <div style={{ gridColumn: "1 / -1", padding: 60, textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
+                    No audit reports generated yet. Click above to start a formal professional audit.
+                  </div>
+                ) : (
+                  reportsList.map(report => (
+                    <div key={report.report_id} style={{
+                      background: "#fff", borderRadius: 16, padding: "24px", border: "1px solid rgba(27,38,59,0.08)",
+                      display: "flex", flexDirection: "column", gap: 16, boxShadow: "0 2px 8px rgba(0,0,0,0.02)"
                     }}>
-                      {/* Header */}
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-                        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                          <span style={{ fontSize: 22 }}>{report.icon}</span>
-                          <span style={{ fontSize: 13, fontWeight: 600, color: "var(--text-primary)", lineHeight: 1.3 }}>{report.title}</span>
+                        <div style={{ width: 44, height: 44, background: "rgba(27,38,59,0.05)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <FileText size={22} color="var(--primary)" />
                         </div>
-                        <span style={{
-                          fontSize: 10, fontWeight: 700, padding: "3px 9px", borderRadius: 99, flexShrink: 0, marginLeft: 8,
-                          background: `${report.statusColor}12`,
-                          border: `1px solid ${report.statusColor}30`,
-                          color: report.statusColor,
-                        }}>{report.status}</span>
-                      </div>
-
-                      {/* Description */}
-                      <p style={{ fontSize: 12, color: "var(--text-muted)", lineHeight: 1.6, margin: 0 }}>{report.desc}</p>
-
-                      {/* Meta */}
-                      <div style={{ display: "flex", gap: 16, fontSize: 11, color: "var(--text-muted)" }}>
-                        <span>📅 {report.date}</span>
-                        <span>📄 {report.pages} pages</span>
-                      </div>
-
-                      {/* Actions */}
-                      <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
-                        <button style={{
-                          flex: 1, padding: "8px 0",
-                          borderRadius: 8,
-                          border: "none",
-                          background: "var(--primary)",
-                          color: "#fff",
-                          fontSize: 12, fontWeight: 600, cursor: "pointer",
+                        <span style={{ 
+                          fontSize: 10, fontWeight: 800, padding: "4px 10px", borderRadius: 6,
+                          background: report.status === "COMPLETED" ? "rgba(16,185,129,0.1)" : "rgba(245,158,11,0.1)",
+                          color: report.status === "COMPLETED" ? "#10B981" : "#F59E0B"
                         }}>
-                          ↓ Download PDF
+                          {report.status}
+                        </span>
+                      </div>
+                      
+                      <div>
+                        <h4 style={{ margin: 0, fontSize: 15, fontWeight: 700, color: "var(--text-primary)" }}>Regulatory Audit Report</h4>
+                        <p style={{ margin: "4px 0 0", fontSize: 12, color: "var(--text-muted)" }}>Report ID: {report.report_id.slice(0, 8)}...</p>
+                      </div>
+
+                      <div style={{ display: "flex", gap: 16, marginTop: "auto" }}>
+                        <button 
+                          onClick={() => {
+                            const token = localStorage.getItem("access");
+                            window.open(`http://localhost:8000/api/compliance/report/download/${report.report_id}?token=${token}`, "_blank");
+                          }}
+                          style={{
+                            flex: 1, padding: "10px", borderRadius: 8, background: "var(--primary)", color: "#fff",
+                            border: "none", fontSize: 13, fontWeight: 600, cursor: "pointer"
+                          }}
+                        >
+                          Download PDF
                         </button>
                         <button style={{
-                          padding: "8px 14px",
-                          borderRadius: 8,
-                          border: "1px solid rgba(27,38,59,0.15)",
-                          background: "transparent",
-                          color: "var(--text-secondary)",
-                          fontSize: 12, cursor: "pointer",
+                          padding: "10px 16px", borderRadius: 8, border: "1px solid rgba(27,38,59,0.15)",
+                          background: "transparent", color: "var(--text-secondary)", fontSize: 13, cursor: "pointer"
                         }}>
-                          Preview
+                          View Details
                         </button>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  ))
+                )}
               </div>
-            );
-          })()}
+            </div>
+          )}
 
           {/* ─── PROFILE TAB ─── */}
           {activeTab === "profile" && (

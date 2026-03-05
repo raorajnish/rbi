@@ -16,6 +16,10 @@ export default function Register() {
     cinNumber: "",
     gstin: "",
     headOfficeLocation: "",
+    servicesProvided: [],
+    complianceAreas: [],
+    dataStorageLocation: [],
+    kycMethod: [],
   });
 
   const [error, setError] = useState("");
@@ -53,6 +57,9 @@ export default function Register() {
         cin_number: form.cinNumber,
         gstin: form.gstin,
         head_office_location: form.headOfficeLocation,
+        services_provided: form.servicesProvided.join(", "),
+        compliance_areas: form.complianceAreas.join(", "),
+        tech_setup: `Storage: ${form.dataStorageLocation.join(", ")}, KYC: ${form.kycMethod.join(", ")}`,
       });
 
       setSuccess("Registration successful! Redirecting to login...");
@@ -73,10 +80,12 @@ export default function Register() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-blue-50 px-4 py-8">
       <div className="w-full max-w-3xl">
         {/* Header Card */}
-        <div className="bg-gradient-to-r from-primary to-blue-600 text-white rounded-t-2xl p-8 text-center shadow-lg">
-          <Building2 size={40} className="mx-auto mb-3" />
-          <h1 className="text-4xl font-bold">RBI Pilot</h1>
-          <p className="text-blue-100 mt-2">Register Your Organization</p>
+        <div className="bg-white rounded-t-2xl p-8 text-center shadow-sm border-b border-gray-100">
+          <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-blue-100 shadow-sm">
+            <Building2 size={32} className="text-primary" />
+          </div>
+          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">RBI Pilot</h1>
+          <p className="text-gray-500 mt-1">Register Your Organization Profile</p>
         </div>
 
         {/* Register Card */}
@@ -192,6 +201,173 @@ export default function Register() {
                     className="w-full px-4 py-2 border border-border rounded-lg bg-surface-alt focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                   />
+                </div>
+              </div>
+            </div>
+
+            {/* Regulatory Scope Section */}
+            <div className="border-b border-gray-200 pb-8">
+              <h3 className="font-semibold text-lg text-gray-900 mb-6 flex items-center gap-2">
+                <AlertCircle size={20} className="text-primary" />
+                Regulatory Scope
+              </h3>
+              <div className="space-y-4">
+                <label className="block text-sm font-medium text-text-primary">
+                  What services do you provide? (Select all that apply) *
+                </label>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  {[
+                    "Lending",
+                    "Digital Payments",
+                    "Wallet Services",
+                    "Merchant Payments",
+                    "Cross Border Payments",
+                  ].map((service) => (
+                    <label
+                      key={service}
+                      className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition-all ${
+                        form.servicesProvided.includes(service)
+                          ? "bg-blue-50 border-primary ring-1 ring-primary"
+                          : "bg-surface-alt border-gray-200 hover:border-primary"
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        className="w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary"
+                        checked={form.servicesProvided.includes(service)}
+                        onChange={(e) => {
+                          const updated = e.target.checked
+                            ? [...form.servicesProvided, service]
+                            : form.servicesProvided.filter((s) => s !== service);
+                          setForm({ ...form, servicesProvided: updated });
+                        }}
+                      />
+                      <span className="text-sm font-medium text-gray-700">
+                        {service}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Compliance Setup Section */}
+            <div className="border-b border-gray-200 pb-8">
+              <h3 className="font-semibold text-lg text-gray-900 mb-6 flex items-center gap-2">
+                <UserCheck size={20} className="text-primary" />
+                Compliance Setup
+              </h3>
+              <div className="space-y-4">
+                <label className="block text-sm font-medium text-text-primary">
+                  Which compliance areas apply? (Select all that apply) *
+                </label>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  {[
+                    "KYC",
+                    "AML",
+                    "Data Localization",
+                    "Risk Management",
+                    "Lending Transparency",
+                  ].map((area) => (
+                    <label
+                      key={area}
+                      className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition-all ${
+                        form.complianceAreas.includes(area)
+                          ? "bg-blue-50 border-primary ring-1 ring-primary"
+                          : "bg-surface-alt border-gray-200 hover:border-primary"
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        className="w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary"
+                        checked={form.complianceAreas.includes(area)}
+                        onChange={(e) => {
+                          const updated = e.target.checked
+                            ? [...form.complianceAreas, area]
+                            : form.complianceAreas.filter((a) => a !== area);
+                          setForm({ ...form, complianceAreas: updated });
+                        }}
+                      />
+                      <span className="text-sm font-medium text-gray-700">
+                        {area}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Tech Setup Section */}
+            <div className="border-b border-gray-200 pb-8">
+              <h3 className="font-semibold text-lg text-gray-900 mb-6 flex items-center gap-2">
+                <Building2 size={20} className="text-primary" />
+                Tech Setup
+              </h3>
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    Data Storage Location *
+                  </label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {["India", "Outside India"].map((loc) => (
+                      <label
+                        key={loc}
+                        className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition-all ${
+                          form.dataStorageLocation.includes(loc)
+                            ? "bg-blue-50 border-primary ring-1 ring-primary"
+                            : "bg-surface-alt border-gray-200 hover:border-primary"
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          className="w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary"
+                          checked={form.dataStorageLocation.includes(loc)}
+                          onChange={(e) => {
+                            const updated = e.target.checked
+                              ? [...form.dataStorageLocation, loc]
+                              : form.dataStorageLocation.filter((l) => l !== loc);
+                            setForm({ ...form, dataStorageLocation: updated });
+                          }}
+                        />
+                        <span className="text-sm font-medium text-gray-700">
+                          {loc}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    KYC Method *
+                  </label>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    {["Aadhaar eKYC", "Video KYC", "Offline KYC"].map((method) => (
+                      <label
+                        key={method}
+                        className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition-all ${
+                          form.kycMethod.includes(method)
+                            ? "bg-blue-50 border-primary ring-1 ring-primary"
+                            : "bg-surface-alt border-gray-200 hover:border-primary"
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          className="w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary"
+                          checked={form.kycMethod.includes(method)}
+                          onChange={(e) => {
+                            const updated = e.target.checked
+                              ? [...form.kycMethod, method]
+                              : form.kycMethod.filter((m) => m !== method);
+                            setForm({ ...form, kycMethod: updated });
+                          }}
+                        />
+                        <span className="text-sm font-medium text-gray-700">
+                          {method}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

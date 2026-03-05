@@ -61,6 +61,9 @@ async def register(request: UserRegisterRequest, db: AsyncIOMotorDatabase = Depe
         "cin_number": request.cin_number,
         "gstin": request.gstin,
         "head_office_location": request.head_office_location,
+        "services_provided": request.services_provided,
+        "compliance_areas": request.compliance_areas,
+        "tech_setup": request.tech_setup,
         "role": "admin",
         "created_at": datetime.now(timezone.utc),
         "updated_at": datetime.now(timezone.utc)
@@ -160,7 +163,11 @@ async def update_profile(http_request: Request, db: AsyncIOMotorDatabase = Depen
 
     update_data = {"updated_at": datetime.now(timezone.utc)}
 
-    allowed_fields = ["company_name", "organization_type", "cin_number", "gstin", "head_office_location"]
+    allowed_fields = [
+        "company_name", "organization_type", "cin_number", 
+        "gstin", "head_office_location", "services_provided", 
+        "compliance_areas", "tech_setup"
+    ]
     for field in allowed_fields:
         if field in request_body and request_body[field]:
             update_data[field] = request_body[field]

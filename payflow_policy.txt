@@ -1,0 +1,51 @@
+PayFlow Solutions Pvt Ltd: Operational Blueprint
+Document ID: PA-OPS-SNAP-2026-002
+
+Organization Type: Payment Aggregator (PA) / Fintech Enabler
+
+Market Segment: E-commerce Checkouts & Offline QR Merchants
+
+1. Merchant Onboarding & Underwriting
+How the company brings new businesses onto its platform.
+
+KYC Tiering: * Small Merchants: (Turnover < ₹5 Lakhs) Onboarded via scanned copy of Shop Act license and Pan Card uploaded to a Google Form.
+
+Corporate Merchants: Onboarded via a 12-page physical form; Board Resolution is collected but not verified against the MCA (Ministry of Corporate Affairs) database in real-time.
+
+Physical Verification: To scale quickly, the company uses "Geo-tagged Photos" sent by the merchant as a substitute for on-site physical visits for all Tier 2 city businesses.
+
+Prohibited Categories: The system uses a keyword filter to block "Gambling" or "Adult Content," but doesn't have a cross-reference check for "Aggregator-within-Aggregator" (Sub-aggregators).
+
+2. Fund Settlement & Escrow Management
+How the money flows from the customer to the merchant.
+
+Escrow Account: Maintained with a Private Sector Bank in Mumbai.
+
+Settlement Cycle: * Standard: T+2 days.
+
+Instant Pay: For a 1% extra fee, funds are settled to the merchant’s current account within 4 hours using the company's own working capital, rather than the Escrow node.
+
+Nodal Account: The company still maintains an old "Nodal Account" from 2022 for legacy international merchants, which hasn't been migrated to the new Escrow framework yet.
+
+3. Technical Architecture & Security
+The IT backbone of the payment gateway.
+
+Card Data Handling: PayFlow is PCI-DSS Level 1 Certified. However, for "Express Checkout," the full 16-digit card numbers are stored in an internal "Speed-Cache" (Redis) for 30 minutes to reduce latency.
+
+Infrastructure: Multi-cloud setup (Azure and Google Cloud).
+
+Data Sovereignty: [DIVERSITY DATA] While transaction data is stored in India, the "Risk & Fraud Analytics" logs are streamed to a parent entity's server in Singapore for real-time processing and fraud scoring.
+
+Customer Authentication: Supports 2FA (Two-Factor Authentication) via SMS OTP. Biometric authentication (Fingerprint/FaceID) is available only on the iOS SDK.
+
+4. Risk & Compliance Monitoring
+Transaction Monitoring (TMS): Flags any merchant whose daily volume spikes by more than 500%.
+
+Chargeback Management: Handled via a manual dashboard where merchants have 7 days to respond. If they don't respond, the amount is automatically debited from their next settlement.
+
+Board of Directors: Consists of 3 Directors. The "Fit and Proper" criteria certificates were last signed during the company incorporation in 2023.
+
+5. Customer Grievance & Redressal
+Nodal Officer: Appointed and details are listed in the "Contact Us" section of the website.
+
+Refund Policy: Processed within 5-7 business days. No automated "Status Tracking" API is currently provided to the end customer.

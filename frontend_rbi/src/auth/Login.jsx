@@ -50,9 +50,12 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-blue-50 px-4 py-8">
       <div className="w-full max-w-md">
         {/* Header Card */}
-        <div className="bg-gradient-to-r from-primary to-blue-600 text-white rounded-t-2xl p-8 text-center shadow-lg">
-          <h1 className="text-4xl font-bold mb-2">RBI Pilot</h1>
-          <p className="text-blue-100">Regulatory Compliance Dashboard</p>
+        <div className="bg-white rounded-t-2xl p-8 text-center shadow-sm border-b border-gray-100">
+          <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-blue-100 shadow-sm">
+            <LogIn size={32} className="text-primary" />
+          </div>
+          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">RBI Pilot</h1>
+          <p className="text-gray-500 mt-1">Regulatory Compliance Dashboard</p>
         </div>
 
         {/* Login Card */}
